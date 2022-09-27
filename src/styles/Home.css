@@ -1,0 +1,17 @@
+.CButtonHome img{
+  width: 100px;
+  height: 100px;
+}
+
+body {
+  background-color: #131314;
+}
+
+.barra-iniciante{
+  height: 6px;
+  background: #9400D3;
+  position: relative;
+  z-index: 1;
+  transition: all .3s ease-in-out;
+  margin-bottom: -4px;
+}

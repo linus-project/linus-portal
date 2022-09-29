@@ -1,0 +1,90 @@
+
+@media (min-width: 992px) {
+
+    #header .nav-link {
+        font-weight: 500;
+        padding-left: 0;
+        padding-right: 0;
+        /* margin-left: 80px;
+        margin-right: 50px; */
+    }
+}
+@media (max-width: 992px) {
+
+    #header .navbar-collapse {
+        width: 100%;
+    }
+
+    #expand {
+        display: block;
+        background-color: var(--blue);
+        border-radius: 10px;
+        margin-right: 5px;
+    }
+
+    #header img {
+        margin-left: 5px;
+    }
+
+    .btn-navbar-login {
+        margin-left: 0px;
+        margin-right: 0px;
+        margin-top: 10px;
+    }
+
+    .btn-navbar-cadastrar{
+        margin-left: 0px;
+        margin-top: 5px;
+
+    } 
+
+    #buttons-navbar {
+        width: 100%;
+        height: auto;
+        margin-right: 0px;
+        align-items: center;
+        align-content: center;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .nuvem-palavras {
+        display: none;
+    }
+
+    .missao {
+        display: flex;
+        flex-direction: column;
+        margin-top: 0px;
+        height: 400px;
+    }
+
+    .missao h1 {
+        font-size: 30px;
+        font-weight: bold;
+        color: var(--purple);
+        text-align: center;
+        margin-left: 0px;
+        margin-bottom: 30px;
+    }
+    
+    .missao p {
+        color: #ffffff;
+        font-size: 15px;
+        margin-left: 20px;
+        margin-right: 20px;
+        text-align: center;
+    }
+
+    .missao h1:hover {
+        font-size: 40px;
+        font-weight: bolder;
+        transition: 1s;
+    }
+    
+    .missao p:hover {
+        font-weight: bolder;
+        font-size: 21px;
+        transition: 1.5s;
+    }
+}

@@ -49,7 +49,8 @@
     }
 
     .nuvem-palavras {
-        display: none;
+        background: url('../assets/educacao-mobile.gif') no-repeat center center/cover;
+        background-size: 100%;
     }
 
     .missao {

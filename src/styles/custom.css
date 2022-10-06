@@ -39,6 +39,13 @@ body {
     transition: 0.5s;
 }
 
+/* #log, #cad {
+    color: var(--blue);
+    font-weight: bolder;
+    border-bottom: solid 2px var(--blue);
+    transition: 0.5s;
+} */
+
 #header img {
     margin-left: 50px;
 }
@@ -79,7 +86,7 @@ body {
 }
 
 #banner {
-    background: url('../assets/david-monje-SdeodksvYwE-unsplash.jpg') no-repeat center center/cover;
+    background: url('../assets/Banner.png') no-repeat center center/cover;
     height: 997px;
     display: flex;
     justify-content: center;

@@ -7,8 +7,8 @@ export function CIntermediario () {
         <div>
             <div className="row mt-2">
                 <div className="col-sm-4 col-md-6 CIniciante">
-                    <p className="fs-2" style={{color: "#52BCBF"}}>Já tem algum<br /> conhecimento?</p>
-                    <p className="text-light">Temos lugar para você também!</p>
+                    <p className="fs-1" style={{color: "#52BCBF"}}>Já tem algum<br /> conhecimento?</p>
+                    <p className="text-light fs-4">Temos lugar para você também!</p>
                     <Button className='CButtonHome' style={{backgroundColor: "#52BCBF"}}>
                     Quero conhecer!
                         <img src={trending}/>

@@ -88,4 +88,12 @@
         font-size: 21px;
         transition: 1.5s;
     }
+
+    .distros-img {
+        display: flex;
+        flex-flow: row wrap;
+    }
+    .distribuicoes p {
+        margin-bottom: 20px;
+    }
 }

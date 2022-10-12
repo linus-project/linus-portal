@@ -30,7 +30,7 @@ export function CNiveis () {
                     </NavItem>
                     <NavItem>
                         <NavLink className={`text-light fs-2 ${activeTab === "CIntermediario" ? "active" : ""}`} onClick={handleTab2} href="#2">
-                        Intermediario
+                        Intermediário
                         </NavLink>
                         {activeTab === "CIntermediario" ? <div className="barra-iniciante"></div> : ""}
                     </NavItem>

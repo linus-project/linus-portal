@@ -148,6 +148,57 @@ body {
     transition: 1.5s;
 }
 
+.em-alta {
+    height: 742px;
+    width: 100%;
+    background-color: var(--gray);
+}
+
+.em-alta h2 {
+    font-size: 60px;
+    color: var(--purple);
+    margin-left: 50px;
+    font-weight: bold;
+}
+
+.em-alta h2:hover {
+    font-weight: 900;
+    font-size: 65px;
+    transition: 1.5s;
+}
+
+.distribuicoes {
+    height: 742px;
+    width: 100%;
+    background-color: var(--gray);
+}
+
+.distribuicoes h2 {
+    font-size: 60px;
+    color: var(--purple);
+    margin-left: 50px;
+    font-weight: bold;
+}
+
+.distribuicoes h2:hover {
+    font-weight: 900;
+    font-size: 65px;
+    transition: 1.5s;
+}
+
+.distribuicoes p {
+    margin-left: 50px;
+    margin-top: 20px;
+    font-size: 25px;
+    color: #ffffff;
+    font-weight: 200;
+}
+
+.distros-img {
+    width: 100px;
+    height: auto;
+}
+
 .footer-basic {
     padding:40px 0;
     background-color:#9400D3;

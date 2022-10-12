@@ -96,4 +96,25 @@
     .distribuicoes p {
         margin-bottom: 20px;
     }
+
+    .redes-sociais {
+        flex-direction: column;
+        height: fit-content;
+    }
+
+    .img-e-user {
+        align-items: center;
+        flex-direction: column;
+    }
+    
+    .sociais-direita {
+        display: none;
+    }
+
+    .sociais-esquerda {
+        width: 100%;
+        margin-top: 50px;
+        margin-left: 0px;
+
+    }
 }

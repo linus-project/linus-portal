@@ -23,19 +23,19 @@ export function CNiveis () {
             <div className="row Tabs">
                 <Nav className='mt-2 nav'>
                     <NavItem>
-                        <NavLink className={`text-light fs-3 ${activeTab === "CIniciante" ? "active" : ""}`} onClick={handleTab1} href="#1">
+                        <NavLink className={`text-light fs-2 ${activeTab === "CIniciante" ? "active" : ""}`} onClick={handleTab1} href="#1">
                         Iniciante
                         </NavLink>
                         {activeTab === "CIniciante" ? <div className="barra-iniciante"></div> : ""}
                     </NavItem>
                     <NavItem>
-                        <NavLink className={`text-light fs-3 ${activeTab === "CIntermediario" ? "active" : ""}`} onClick={handleTab2} href="#2">
-                        Intermediario
+                        <NavLink className={`text-light fs-2 ${activeTab === "CIntermediario" ? "active" : ""}`} onClick={handleTab2} href="#2">
+                        Intermediário
                         </NavLink>
                         {activeTab === "CIntermediario" ? <div className="barra-iniciante"></div> : ""}
                     </NavItem>
                     <NavItem>
-                        <NavLink className={`text-light fs-3 ${activeTab === "CAvancado" ? "active" : ""}`} onClick={handleTab3} href="#3">
+                        <NavLink className={`text-light fs-2 ${activeTab === "CAvancado" ? "active" : ""}`} onClick={handleTab3} href="#3">
                         Avançado
                         </NavLink>
                         {activeTab === "CAvancado" ? <div className="barra-iniciante"></div> : ""}

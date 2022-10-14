@@ -2,12 +2,15 @@ import '../styles/Home.css';
 import '../styles/main.css';
 import { CNiveis } from '../components/CNiveis';
 import api from '../api';
+import ModalLogin from '../components/CModalLogin';
+import Footer from '../components/CFooter';
+import Header from '../components/CHeader';
 
 function Home() {
 
   // Requisição ao serviço de listar usuários - Inicio
 
-  async function getUsers(){
+  async function getUsers() {
     var response = null;
     try {
       response = await api.get("/users/list", { headers: { "secretKey": "grupo6" } })
@@ -15,21 +18,43 @@ function Home() {
       return response.data
 
     }
-    catch(error) {
+    catch (error) {
       console.log("[ERROR] - getUsers: ", error)
     }
   }
 
   // Chamando a função de requisição ao iniciar a página
-  getUsers()
+  getUsers();
 
-  // Requisição ao serviço de listar usuários - Inicio - fim
+  // Requisição ao serviço de listar usuários - Fim
 
   return (
-    <div className="Home ms-5 me-5">
-      <CNiveis />
-    </div>
+    <>
+      <Header/>
+
+      <div id="banner">
+        <p>Democratizar, facilitar e transformar</p>
+      </div>
+
+      <div className="nuvem-palavras">
+        <img src={"../assets/Educação.gif"} className="img-fluid" />
+      </div>
+
+      <div id="niveis">
+        <CNiveis />
+      </div>
+
+      <div className="missao">
+        <h1>Nossa Missão</h1>
+        <p>O principal objetivo da LinUS é, além de democratizar o ensino, facilitar o entendimento sobre o sistema
+          operacional Linux, transformando a visão que pessoas comuns têm sobre ele e suas distribuições</p>
+      </div>
+
+      <Footer />
+    </>
   );
 }
 
 export default Home;
+
+

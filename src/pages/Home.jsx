@@ -2,7 +2,6 @@ import '../styles/Home.css';
 import '../styles/main.css';
 import { CNiveis } from '../components/CNiveis';
 import api from '../api';
-import ModalLogin from '../components/CModalLogin';
 import Footer from '../components/CFooter';
 import Header from '../components/CHeader';
 

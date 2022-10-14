@@ -19,7 +19,7 @@ export function CNiveis () {
     };
 
     return (
-        <div> 
+        <div className="Home ms-5 me-5"> 
             <div className="row Tabs">
                 <Nav className='mt-2 nav'>
                     <NavItem>

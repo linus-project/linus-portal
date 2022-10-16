@@ -23,7 +23,7 @@ function Header(props) {
             <div id="header">
                 <div className="container">
                     <nav className="navbar navbar-expand-lg navbar-light justify-content-between">
-                        <a className="navbar-brand" href="#">
+                        <a className="navbar-brand" href="#">   
                             <img src={LinusLogo} alt="" className="img-fluid"/>
                         </a>
                         <div id="expand"><button className="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -38,13 +38,13 @@ function Header(props) {
                                     <a className="nav-link active" aria-current="page" href="#">Sobre nós</a>
                                 </li>
                                 <li className="nav-item">
-                                    <a className="nav-link" href="#">Em alta</a>
+                                    <a className="nav-link" href="#secao-em-alta">Em alta</a>
                                 </li>
                                 <li className="nav-item">
-                                    <a className="nav-link" href="#">Principais distribuições</a>
+                                    <a className="nav-link" href="#secao-distribuicoes">Principais distribuições</a>
                                 </li>
                                 <li className="nav-item">
-                                    <a className="nav-link" href="#">Contatos</a>
+                                    <a className="nav-link" href="#secao-contatos">Contatos</a>
                                 </li>
                                 <li className="nav-item">
                                     <a className="nav-link" onClick={showModalLogin}>Login</a>

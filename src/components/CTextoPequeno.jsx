@@ -1,7 +1,9 @@
-export function CTextoPequeno () {
+function CTextoPequeno (props) {
     return (
         <div>
-            <p className="text-light">Aqui você vai sair do 0 ao avançado em <br /> questão de tempo.</p>
+            <p className="text-light fs-4">{props.text}</p>
         </div>
     )
 }
+
+export default CTextoPequeno;

@@ -1,6 +1,7 @@
 import { display } from "@mui/system";
 import { React, useState }from "react";
 import ModalLogin from "./CModalLogin";
+import LinusLogo from "../assets/logo-svg.svg"
 
 function Header(props) {
 
@@ -23,7 +24,7 @@ function Header(props) {
                 <div className="container">
                     <nav className="navbar navbar-expand-lg navbar-light justify-content-between">
                         <a className="navbar-brand" href="#">
-                            {/* <img src="../src/assets/logo-svg.svg" alt="" className="img-fluid"> */}
+                            <img src={LinusLogo} alt="" className="img-fluid"/>
                         </a>
                         <div id="expand"><button className="navbar-toggler" type="button" data-bs-toggle="collapse"
                             data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"

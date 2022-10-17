@@ -14,8 +14,8 @@ export function CIniciante () {
                         <img src={trending}/>
                     </Button> 
                 </div>
-                <div className="col-sm-4 col-md-6 mt-5">
-                    <img src={maoHome} width={320} height={320} alt="" />
+                <div className="col-sm-4 col-md-6">
+                    <img className='float-right' src={maoHome} width={540} height={500} alt="" />
                 </div>
             </div>
         </div>

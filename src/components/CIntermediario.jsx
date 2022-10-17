@@ -15,7 +15,7 @@ export function CIntermediario () {
                     </Button> 
                 </div>
                 <div className="col-sm-4 col-md-6 mt-5">
-                    <img src={computadorHome} width={320} height={320} alt="" />
+                    <img className='float-right' src={computadorHome} width={540} height={500} alt="" />
                 </div>
             </div>
         </div>

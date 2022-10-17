@@ -5,7 +5,7 @@ import api from '../api';
 import Footer from '../components/CFooter';
 import Header from '../components/CHeader';
 
-function Home() {
+export function Home() {
 
   // Requisição ao serviço de listar usuários - Inicio
 
@@ -100,6 +100,5 @@ function Home() {
   );
 }
 
-export default Home;
 
 

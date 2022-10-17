@@ -15,7 +15,7 @@ export function CAvancado () {
                     </Button> 
                 </div>
                 <div className="col-sm-4 col-md-6 mt-5">
-                    <img src={meninoHome} width={340} height={320} alt="" />
+                    <img className='float-right' src={meninoHome} width={540} height={500} alt="" />
                 </div>
             </div>
         </div>

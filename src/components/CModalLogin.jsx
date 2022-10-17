@@ -1,12 +1,11 @@
 import { Form, FormGroup, Input, Label, Button } from 'reactstrap';
 import { useState } from 'react';
 // import foto from '../assets/login.png';
-// import logoGit from '../assets/github.svg';
+import logoGit from '../assets/github.svg';
 import { IconButton } from '@mui/material';
 import api from '../api';
 // import logoFacebook from '../assets/facebook.png';
 // import logoGoogle from '../assets/google.png'
-
 
 function ModalLogin() {
 
@@ -126,10 +125,9 @@ function ModalLogin() {
 
 
                         <IconButton style={{ height: 40, marginTop: 20 }}>
-
-                            {/* <img style={{ fontSize: '0', height: 40 }} alt="github" src={logoGit} /> */}
-
+                            <img style={{ fontSize: '0', height: 40 }} alt="github" src={logoGit} />
                         </IconButton>
+
                         <IconButton style={{ height: 40, marginTop: 20 }}>
 
                             {/* <img style={{ fontSize: '0', height: 40 }} alt="logoFacebook" src={logoFacebook} /> */}

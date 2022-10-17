@@ -1,19 +1,32 @@
 import { React, useState }from "react";
 import ModalLogin from "./CModalLogin";
+import ModalCadastro from "./CModalCadastro";
 import LinusLogo from "../assets/logo-svg.svg"
 
 function Header(props) {
 
     const [modalLogin, setModalLogin] = useState([]);
-    var isActive = false;
+    const [modalCadastro, setModalCadastro] = useState([]);
+    var isModalLoginActive = false;
+    var isModalCadastroActive = false
 
     function showModalLogin() {
-        if(isActive == false){
+        if(isModalLoginActive == false){
             setModalLogin(<ModalLogin/>);
-            isActive = true;
+            isModalLoginActive = true;
         } else {
             setModalLogin();
-            isActive = false;
+            isModalLoginActive = false;
+        }
+    }
+
+    function showModalCadastro() {
+        if(isModalCadastroActive == false){
+            setModalCadastro(<ModalCadastro/>);
+            isModalCadastroActive = true;
+        } else {
+            setModalCadastro();
+            isModalCadastroActive = false;
         }
     }
 
@@ -49,7 +62,7 @@ function Header(props) {
                                     <a className="nav-link" onClick={showModalLogin}>Login</a>
                                 </li>
                                 <li className="nav-item">
-                                    <a className="nav-link" href="#">Cadastre-se</a>
+                                    <a className="nav-link" onClick={showModalCadastro}>Cadastre-se</a>
                                 </li>
                             </ul>
                         </div>
@@ -62,6 +75,8 @@ function Header(props) {
             </div>
 
             {modalLogin}
+
+            {modalCadastro}
 
         </>
     )

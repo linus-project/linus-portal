@@ -1,12 +1,47 @@
 import { Form, FormGroup, Input, Label, Button } from 'reactstrap';
-import foto from '../assets/login.png';
+// import foto from '../assets/login.png';
 import logoGit from '../assets/github.svg';
 import { IconButton } from '@mui/material';
-import logoFacebook from '../assets/facebook1.png';
-import logoGoogle from '../assets/google.png'
+import api from '../api';
+import { useState } from 'react';
+// import logoFacebook from '../assets/facebook1.png';
+// import logoGoogle from '../assets/google.png'
 
 
-export function ModalCadastro() {
+function ModalCadastro() {
+
+    const [name, setName] = useState('')
+    const [username, setUsername] = useState('')
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+    const [genre, setGenre] = useState(null)
+    const [bornDate, setBornDate] = useState('')
+    const [phoneNumber, setPhoneNumber] = useState('')
+    const [adminKey, setAdminKey] = useState(null)
+    const [imageCode, setImageCode] = useState('')
+    const [fkLevel, setFkLevel] = useState(1)
+
+    async function addUser() {
+        try {
+            await api.post("/users/add",
+                {
+                    "name": name,
+                    "username": username,
+                    "email": email,
+                    "password": password,
+                    "genre": genre,
+                    "bornDate": bornDate,
+                    "phoneNumber": phoneNumber,
+                    "adminKey": adminKey,
+                    "imageCode": imageCode,
+                    "fkLevel": fkLevel
+                });
+        }
+        catch (error) {
+            console.log("[ERROR] - addUser: ", error)
+        }
+    }
+
     return (
         <>
             <div style={{
@@ -30,7 +65,7 @@ export function ModalCadastro() {
             }}>
 
 
-                <h1 style={{marginTop: '10'}}>Cadastro</h1>
+                <h1 style={{ marginTop: '10' }}>Cadastro</h1>
 
 
 
@@ -44,16 +79,16 @@ export function ModalCadastro() {
                 }} >
 
 
-                    <div style={{display: 'flex', justifyContent: 'space-around', alignItems: 'center', width: '100%'}}>
-                        
+                    <div style={{ display: 'flex', justifyContent: 'space-around', alignItems: 'center', width: '100%' }}>
 
-                      
-                        
+
+
+
                         <FormGroup >
 
                             Nome
 
-                            <Input
+                            <Input onChange={name => setName(name.target.value)}
                                 style={{
                                     width: '90%',
                                     height: 25,
@@ -71,14 +106,11 @@ export function ModalCadastro() {
                             <Label for="exampleNAme">
 
                             </Label>
-                 </FormGroup>
-                       
+                        </FormGroup>
 
-
-                        
                         <FormGroup >
                             Usuário
-                            <Input
+                            <Input onChange={username => setUsername(username.target.value)}
                                 style={{
                                     width: '90%',
                                     height: 25,
@@ -95,22 +127,20 @@ export function ModalCadastro() {
                             <Label for="exampleUsuario">
 
                             </Label>
-
-
                         </FormGroup>
-                       
+
                     </div>
 
-                    <div style={{display: 'flex',alignItems: 'center', width: '100%'}}>
-                        
+                    <div style={{ display: 'flex', alignItems: 'center', width: '100%' }}>
 
-                      
-                        
+
+
+
                         <FormGroup >
 
                             E-mail
 
-                            <Input
+                            <Input onChange={email => setEmail(email.target.value)}
                                 style={{
                                     width: '170%',
                                     height: 25,
@@ -129,18 +159,18 @@ export function ModalCadastro() {
 
                             </Label>
                         </FormGroup>
-                        </div>
+                    </div>
 
-                        <div style={{display: 'flex', justifyContent: 'space-around', alignItems: 'center', width: '100%'}}>
-                        
+                    <div style={{ display: 'flex', justifyContent: 'space-around', alignItems: 'center', width: '100%' }}>
 
-                      
-                        
+
+
+
                         <FormGroup >
 
                             Senha
 
-                            <Input
+                            <Input onChange={password => setPassword(password.target.value)}
                                 style={{
                                     width: '90%',
                                     height: 25,
@@ -155,11 +185,11 @@ export function ModalCadastro() {
                             />
                             <Label for="examplePassword"></Label>
                         </FormGroup>
-                       
 
 
 
-                        
+
+
                         <FormGroup >
                             Confirmação Senha
                             <Input
@@ -182,48 +212,51 @@ export function ModalCadastro() {
 
 
                         </FormGroup>
-                       
-                    </div>
-
-        
-
-
-
-
-                            <Button style={{ marginTop: 20, width: 150, backgroundColor: '#5CE1E6', borderRadius: 10 }}>
-                                Cadastrar
-                            </Button>
-
-                            <div style={{ marginTop: 10 }}>Cadastrar com:</div>
-
-                            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-
-
-
-                                <IconButton style={{ height: 40, marginTop: 20 }}>
-
-                                    <img style={{ fontSize: '0', height: 40 }} alt="github" src={logoGit} />
-
-                                </IconButton>
-                                <IconButton style={{ height: 40, marginTop: 20 }}>
-
-                                    <img style={{ fontSize: '0', height: 40 }} alt="logoFacebook" src={logoFacebook} />
-
-                                </IconButton>
-                                <IconButton style={{ height: 40, marginTop: 20 }}>
-
-                                    <img style={{ fontSize: '0', height: 40 }} alt="github" src={logoGoogle} />
-
-                                </IconButton>
-
-
-                            </div>
-
-                        </Form>
 
                     </div>
 
-                </>
-                )
+
+
+
+
+
+                    <Button
+                        onClick={addUser}
+                        style={{ marginTop: 20, width: 150, backgroundColor: '#5CE1E6', borderRadius: 10 }}>
+                        Cadastrar
+                    </Button>
+
+                    <div style={{ marginTop: 10 }}>Cadastrar com:</div>
+
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+
+
+
+                        <IconButton style={{ height: 40, marginTop: 20 }}>
+
+                            <img style={{ fontSize: '0', height: 40 }} alt="github" src={logoGit} />
+
+                        </IconButton>
+                        <IconButton style={{ height: 40, marginTop: 20 }}>
+
+                            {/* <img style={{ fontSize: '0', height: 40 }} alt="logoFacebook" src={logoFacebook} /> */}
+
+                        </IconButton>
+                        <IconButton style={{ height: 40, marginTop: 20 }}>
+
+                            {/* <img style={{ fontSize: '0', height: 40 }} alt="github" src={logoGoogle} /> */}
+
+                        </IconButton>
+
+
+                    </div>
+
+                </Form>
+
+            </div>
+
+        </>
+    )
 }
 
+export default ModalCadastro;

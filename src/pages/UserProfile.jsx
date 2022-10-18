@@ -26,7 +26,18 @@ function UserProfile() {
                             <Form.Control type="birthday" placeholder="ex: 01/01/2022git " />
                         </Form>
                     </Col>
-                    <Col></Col>
+                    <Col>  <Form>
+                            <Form.Group>
+                                <Form.Label className="text-light">Nome</Form.Label>
+                                <Form.Control type="name" placeholder="Digite seu nome completo" />
+                            </Form.Group>
+                            <Form.Group>
+                                <Form.Label className="text-light">E-mail</Form.Label>
+                                <Form.Control type="email" placeholder="ex:nome@exemplo.com" />
+                            </Form.Group>
+                            <Form.Label className="text-light">Data de Nascimento</Form.Label>
+                            <Form.Control type="birthday" placeholder="ex: 01/01/2022git " />
+                        </Form></Col>
                     <Col></Col>
                 </Row>
             </Container>

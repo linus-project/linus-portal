@@ -3,10 +3,12 @@ import CTextoGrande from '../components/CTextoGrande';
 import CTextoPequeno from '../components/CTextoPequeno';
 import '../styles/Home.css';
 import '../styles/main.css';
+import LoggedNavBar from '../components/CLoggedNavBar';
 
 export function Distribuicao() {
   return (
     <>
+        <LoggedNavBar />
         <CTextoGrande text="Distribuições" class="fs-1 pl-5 fw-bold pt-5" />
         <CTextoPequeno text="Selecione a distribuição e veja os planos de estudos disponíveis para você em cada uma delas:" class="pl-5 fw-lighter mb-20"/>
         

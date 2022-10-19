@@ -3,10 +3,12 @@ import '../styles/main.css';
 import CTextoGrande from '../components/CTextoGrande';
 import CTextoPequeno from '../components/CTextoPequeno';
 import { CConteudo } from '../components/CConteudo';
+import LoggedNavBar from '../components/CLoggedNavBar';
 
 export function Conteudos() {
   return (
     <>
+        <LoggedNavBar />
        <CTextoGrande text="Conteúdo" class="pl-5 fw-bold pt-5"/>
        <CTextoPequeno text="Acompanhe abaixo o conteúdo sugerido, de acordo com o nivel de dificuldade" class="pl-5 fw-lighter mb-20"/>
        

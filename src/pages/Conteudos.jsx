@@ -7,7 +7,7 @@ import { CConteudo } from '../components/CConteudo';
 export function Conteudos() {
   return (
     <>
-       <CTextoGrande text="Distribuição" class="pl-5 fw-bold pt-5"/>
+       <CTextoGrande text="Conteúdo" class="pl-5 fw-bold pt-5"/>
        <CTextoPequeno text="Acompanhe abaixo o conteúdo sugerido, de acordo com o nivel de dificuldade" class="pl-5 fw-lighter mb-20"/>
        
        <CTextoGrande text="Iniciante" class="pl-5 fw-bold pt-5" color="#52BCBF"/>
@@ -15,13 +15,13 @@ export function Conteudos() {
        <div className="container text-left">
             <div className="row">
                 <div className="col">
-                    <CConteudo image="computadorHome" titulo="Distribuição 1" texto="Texto de texto para ver se está funcionando perfeitamente"/>
+                    <CConteudo image="../assets/intermediario.png" titulo="Distribuição 1" texto="Texto de texto para ver se está funcionando perfeitamente"/>
                 </div>
                 <div className="col">
-                    <CConteudo image="computadorHome" titulo="Distribuição 2" texto="Texto de texto para ver se está funcionando perfeitamente"/>
+                    <CConteudo image="../assets/intermediario.png" titulo="Distribuição 2" texto="Texto de texto para ver se está funcionando perfeitamente"/>
                 </div>
                 <div className="col">
-                    <CConteudo image="computadorHome" titulo="Distribuição 3" texto="Texto de texto para ver se está funcionando perfeitamente"/>
+                    <CConteudo image="../assets/intermediario.png" titulo="Distribuição 3" texto="Texto de texto para ver se está funcionando perfeitamente"/>
                 </div>
             </div>
         </div>
@@ -29,13 +29,13 @@ export function Conteudos() {
         <div className="container text-left">
             <div className="row">
                 <div className="col">
-                    <CConteudo image="computadorHome" titulo="Distribuição 1" texto="Texto de texto para ver se está funcionando perfeitamente"/>
+                    <CConteudo image="../assets/basico.png" titulo="Distribuição 1" texto="Texto de texto para ver se está funcionando perfeitamente"/>
                 </div>
                 <div className="col">
-                    <CConteudo image="computadorHome" titulo="Distribuição 2" texto="Texto de texto para ver se está funcionando perfeitamente"/>
+                    <CConteudo image="../assets/basico.png" titulo="Distribuição 2" texto="Texto de texto para ver se está funcionando perfeitamente"/>
                 </div>
                 <div className="col">
-                    <CConteudo image="computadorHome" titulo="Distribuição 3" texto="Texto de texto para ver se está funcionando perfeitamente"/>
+                    <CConteudo image="../assets/basico.png" titulo="Distribuição 3" texto="Texto de texto para ver se está funcionando perfeitamente"/>
                 </div>
             </div>
         </div>
@@ -43,13 +43,13 @@ export function Conteudos() {
         <div className="container text-left">
             <div className="row">
                 <div className="col">
-                    <CConteudo image="computadorHome" titulo="Distribuição 1" texto="Texto de texto para ver se está funcionando perfeitamente"/>
+                    <CConteudo image="../assets/avancado.png" titulo="Distribuição 1" texto="Texto de texto para ver se está funcionando perfeitamente"/>
                 </div>
                 <div className="col">
-                    <CConteudo image="computadorHome" titulo="Distribuição 2" texto="Texto de texto para ver se está funcionando perfeitamente"/>
+                    <CConteudo image="../assets/avancado.png" titulo="Distribuição 2" texto="Texto de texto para ver se está funcionando perfeitamente"/>
                 </div>
                 <div className="col">
-                    <CConteudo image="computadorHome" titulo="Distribuição 3" texto="Texto de texto para ver se está funcionando perfeitamente"/>
+                    <CConteudo image="../assets/avancado.png" titulo="Distribuição 3" texto="Texto de texto para ver se está funcionando perfeitamente"/>
                 </div>
             </div>
         </div>

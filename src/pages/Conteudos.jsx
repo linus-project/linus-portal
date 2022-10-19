@@ -14,13 +14,13 @@ export function Conteudos() {
 
        <div className="container text-left">
             <div className="row">
-                <div className="col">
+                <div className="col pb-4 ">
                     <CConteudo image="../assets/intermediario.png" titulo="Distribuição 1" texto="Texto de texto para ver se está funcionando perfeitamente"/>
                 </div>
-                <div className="col">
+                <div className="col pb-4 ">
                     <CConteudo image="../assets/intermediario.png" titulo="Distribuição 2" texto="Texto de texto para ver se está funcionando perfeitamente"/>
                 </div>
-                <div className="col">
+                <div className="col pb-4 ">
                     <CConteudo image="../assets/intermediario.png" titulo="Distribuição 3" texto="Texto de texto para ver se está funcionando perfeitamente"/>
                 </div>
             </div>
@@ -28,13 +28,13 @@ export function Conteudos() {
         <CTextoGrande text="Intermediário" class="pl-5 fw-bold pt-5" color="#52BCBF"/>
         <div className="container text-left">
             <div className="row">
-                <div className="col">
+                <div className="col pb-4 ">
                     <CConteudo image="../assets/basico.png" titulo="Distribuição 1" texto="Texto de texto para ver se está funcionando perfeitamente"/>
                 </div>
-                <div className="col">
+                <div className="col pb-4 ">
                     <CConteudo image="../assets/basico.png" titulo="Distribuição 2" texto="Texto de texto para ver se está funcionando perfeitamente"/>
                 </div>
-                <div className="col">
+                <div className="col pb-4 ">
                     <CConteudo image="../assets/basico.png" titulo="Distribuição 3" texto="Texto de texto para ver se está funcionando perfeitamente"/>
                 </div>
             </div>
@@ -42,13 +42,13 @@ export function Conteudos() {
         <CTextoGrande text="Avançado" class="pl-5 fw-bold pt-5" color="#52BCBF"/>
         <div className="container text-left">
             <div className="row">
-                <div className="col">
+                <div className="col  pb-4">
                     <CConteudo image="../assets/avancado.png" titulo="Distribuição 1" texto="Texto de texto para ver se está funcionando perfeitamente"/>
                 </div>
-                <div className="col">
+                <div className="col  pb-4">
                     <CConteudo image="../assets/avancado.png" titulo="Distribuição 2" texto="Texto de texto para ver se está funcionando perfeitamente"/>
                 </div>
-                <div className="col">
+                <div className="col  pb-4">
                     <CConteudo image="../assets/avancado.png" titulo="Distribuição 3" texto="Texto de texto para ver se está funcionando perfeitamente"/>
                 </div>
             </div>

@@ -1,4 +1,4 @@
-import { Form, FormGroup, Input, Label, Button } from 'reactstrap';
+import { Form, FormGroup, Input, Label, Button, CloseButton } from 'reactstrap';
 import foto from '../assets/login.png';
 import logoGit from '../assets/github.svg';
 import { IconButton } from '@mui/material';
@@ -29,8 +29,18 @@ export function ModalCadastro() {
                 borderRadius: 10
             }}>
 
+                <div style={{
+                    width: '100%', display: 'flex', flexDirection: 'row',
+                    alignItems: 'flex-end',
+                    justifyContent: 'flex-end'
+                }}>
 
-                <h1 style={{marginTop: '10'}}>Cadastro</h1>
+                    <div style={{ marginRight: '5%' }}>
+                        <CloseButton style={{ backgroundColor: '#5CE1E6' }} />
+                    </div>
+                </div>
+
+                <h1 style={{ marginTop: '10' }}>Cadastro</h1>
 
 
 
@@ -44,11 +54,11 @@ export function ModalCadastro() {
                 }} >
 
 
-                    <div style={{display: 'flex', justifyContent: 'space-around', alignItems: 'center', width: '100%'}}>
-                        
+                    <div style={{ display: 'flex', justifyContent: 'space-around', alignItems: 'center', width: '100%' }}>
 
-                      
-                        
+
+
+
                         <FormGroup >
 
                             Nome
@@ -71,11 +81,11 @@ export function ModalCadastro() {
                             <Label for="exampleNAme">
 
                             </Label>
-                 </FormGroup>
-                       
+                        </FormGroup>
 
 
-                        
+
+
                         <FormGroup >
                             Usuário
                             <Input
@@ -98,14 +108,14 @@ export function ModalCadastro() {
 
 
                         </FormGroup>
-                       
+
                     </div>
 
-                    <div style={{display: 'flex',alignItems: 'center', width: '100%'}}>
-                        
+                    <div style={{ display: 'flex', alignItems: 'center', width: '100%' }}>
 
-                      
-                        
+
+
+
                         <FormGroup >
 
                             E-mail
@@ -129,13 +139,13 @@ export function ModalCadastro() {
 
                             </Label>
                         </FormGroup>
-                        </div>
+                    </div>
 
-                        <div style={{display: 'flex', justifyContent: 'space-around', alignItems: 'center', width: '100%'}}>
-                        
+                    <div style={{ display: 'flex', justifyContent: 'space-around', alignItems: 'center', width: '100%' }}>
 
-                      
-                        
+
+
+
                         <FormGroup >
 
                             Senha
@@ -155,11 +165,11 @@ export function ModalCadastro() {
                             />
                             <Label for="examplePassword"></Label>
                         </FormGroup>
-                       
 
 
 
-                        
+
+
                         <FormGroup >
                             Confirmação Senha
                             <Input
@@ -182,48 +192,48 @@ export function ModalCadastro() {
 
 
                         </FormGroup>
-                       
-                    </div>
-
-        
-
-
-
-
-                            <Button style={{ marginTop: 20, width: 150, backgroundColor: '#5CE1E6', borderRadius: 10 }}>
-                                Cadastrar
-                            </Button>
-
-                            <div style={{ marginTop: 10 }}>Cadastrar com:</div>
-
-                            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-
-
-
-                                <IconButton style={{ height: 40, marginTop: 20 }}>
-
-                                    <img style={{ fontSize: '0', height: 40 }} alt="github" src={logoGit} />
-
-                                </IconButton>
-                                <IconButton style={{ height: 40, marginTop: 20 }}>
-
-                                    <img style={{ fontSize: '0', height: 40 }} alt="logoFacebook" src={logoFacebook} />
-
-                                </IconButton>
-                                <IconButton style={{ height: 40, marginTop: 20 }}>
-
-                                    <img style={{ fontSize: '0', height: 40 }} alt="github" src={logoGoogle} />
-
-                                </IconButton>
-
-
-                            </div>
-
-                        </Form>
 
                     </div>
 
-                </>
-                )
+
+
+
+
+
+                    <Button style={{ marginTop: 20, width: 150, backgroundColor: '#5CE1E6', borderRadius: 10 }}>
+                        Cadastrar
+                    </Button>
+
+                    <div style={{ marginTop: 10 }}>Cadastrar com:</div>
+
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+
+
+
+                        <IconButton style={{ height: 40, marginTop: 20 }}>
+
+                            <img style={{ fontSize: '0', height: 40 }} alt="github" src={logoGit} />
+
+                        </IconButton>
+                        <IconButton style={{ height: 40, marginTop: 20 }}>
+
+                            <img style={{ fontSize: '0', height: 40 }} alt="logoFacebook" src={logoFacebook} />
+
+                        </IconButton>
+                        <IconButton style={{ height: 40, marginTop: 20 }}>
+
+                            <img style={{ fontSize: '0', height: 40 }} alt="github" src={logoGoogle} />
+
+                        </IconButton>
+
+
+                    </div>
+
+                </Form>
+
+            </div>
+
+        </>
+    )
 }
 

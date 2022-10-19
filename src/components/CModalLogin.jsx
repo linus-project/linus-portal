@@ -1,4 +1,4 @@
-import { Form, FormGroup, Input, Label, Button } from 'reactstrap';
+import { Form, FormGroup, Input, Label, Button, CloseButton} from 'reactstrap';
 import foto from '../assets/login.png';
 import logoGit from '../assets/github.svg';
 import { IconButton } from '@mui/material';
@@ -29,7 +29,15 @@ export function ModalLogin() {
                 pb: 3,
                 borderRadius: 10
             }}>
-
+               
+               <div style={{width: '100%', display: 'flex', flexDirection: 'row',
+                    alignItems: 'flex-end',
+                    justifyContent: 'flex-end'}}>
+                
+                    <div style={{marginRight: '5%'}}>
+                    <CloseButton style={{ backgroundColor: '#5CE1E6' }} />
+                    </div>
+                </div>
 
                 <h1 style={{ marginTop: 18 }}>Login</h1>
 

@@ -36,9 +36,11 @@ function LoggedNavBar() {
                                     <NavDropdown title="Perfil" id="collapsible-nav-dropdown" className="navbar-dropdown mt-1 mr-3" >
                                         <NavDropdown.Item href="./Distribuicoes">Distribuições</NavDropdown.Item>
                                         <NavDropdown.Divider />
-                                        <NavDropdown.Item href="./Conteudos">Notícias</NavDropdown.Item>
+                                        <NavDropdown.Item href="./Conteudos">Conteúdos</NavDropdown.Item>
                                         <NavDropdown.Divider />
                                         <NavDropdown.Item href="#acao1.3">Favoritos</NavDropdown.Item>
+                                        <NavDropdown.Divider />
+                                        <NavDropdown.Item href="./visto-por-ultimo">Vistos por ultimo</NavDropdown.Item>
                                     </NavDropdown>
                                 </Nav.Item>
                                 <Nav.Item>

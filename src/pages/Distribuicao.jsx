@@ -15,13 +15,13 @@ export function Distribuicao() {
         <div className="container text-left">
             <div className="row">
                 <div className="col">
-                    <CDistribuicao image="../assets/suse.svg" titulo="Distribuição 1" texto="Texto de texto para ver se está funcionando perfeitamente"/>
+                    <CDistribuicao image="../assets/suse.svg" titulo="Distribuição 1" texto="Descrição sobre a distribução"/>
                 </div>
                 <div className="col">
-                    <CDistribuicao image="../assets/suse.svg" titulo="Distribuição 2" texto="Texto de texto para ver se está funcionando perfeitamente"/>
+                    <CDistribuicao image="../assets/suse.svg" titulo="Distribuição 2" texto="Descrição sobre a distribução"/>
                 </div>
                 <div className="col">
-                    <CDistribuicao image="../assets/debian.svg" titulo="Distribuição 3" texto="Texto de texto para ver se está funcionando perfeitamente"/>
+                    <CDistribuicao image="../assets/debian.svg" titulo="Distribuição 3" texto="Descrição sobre a distribução"/>
                 </div>
             </div>
         </div>

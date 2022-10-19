@@ -17,13 +17,13 @@ export function Conteudos() {
        <div className="container text-left">
             <div className="row">
                 <div className="col pb-4 ">
-                    <CConteudo image="../assets/intermediario.png" titulo="Distribuição 1" texto="Texto de texto para ver se está funcionando perfeitamente"/>
+                    <CConteudo image="../assets/intermediario.png" titulo="Conteúdo 1" texto="Descrição sobre o conteúdo"/>
                 </div>
                 <div className="col pb-4 ">
-                    <CConteudo image="../assets/intermediario.png" titulo="Distribuição 2" texto="Texto de texto para ver se está funcionando perfeitamente"/>
+                    <CConteudo image="../assets/intermediario.png" titulo="Conteúdo 2" texto="Descrição sobre o conteúdo"/>
                 </div>
                 <div className="col pb-4 ">
-                    <CConteudo image="../assets/intermediario.png" titulo="Distribuição 3" texto="Texto de texto para ver se está funcionando perfeitamente"/>
+                    <CConteudo image="../assets/intermediario.png" titulo="Conteúdo 3" texto="Descrição sobre o conteúdo"/>
                 </div>
             </div>
         </div>
@@ -31,13 +31,13 @@ export function Conteudos() {
         <div className="container text-left">
             <div className="row">
                 <div className="col pb-4 ">
-                    <CConteudo image="../assets/basico.png" titulo="Distribuição 1" texto="Texto de texto para ver se está funcionando perfeitamente"/>
+                    <CConteudo image="../assets/basico.png" titulo="Conteúdo 1" texto="Descrição sobre o conteúdo"/>
                 </div>
                 <div className="col pb-4 ">
-                    <CConteudo image="../assets/basico.png" titulo="Distribuição 2" texto="Texto de texto para ver se está funcionando perfeitamente"/>
+                    <CConteudo image="../assets/basico.png" titulo="Conteúdo 2" texto="Descrição sobre o conteúdo"/>
                 </div>
                 <div className="col pb-4 ">
-                    <CConteudo image="../assets/basico.png" titulo="Distribuição 3" texto="Texto de texto para ver se está funcionando perfeitamente"/>
+                    <CConteudo image="../assets/basico.png" titulo="Conteúdo 3" texto="Descrição sobre o conteúdo"/>
                 </div>
             </div>
         </div>
@@ -45,13 +45,13 @@ export function Conteudos() {
         <div className="container text-left">
             <div className="row">
                 <div className="col  pb-4">
-                    <CConteudo image="../assets/avancado.png" titulo="Distribuição 1" texto="Texto de texto para ver se está funcionando perfeitamente"/>
+                    <CConteudo image="../assets/avancado.png" titulo="Conteúdo 1" texto="Descrição sobre o conteúdo"/>
                 </div>
                 <div className="col  pb-4">
-                    <CConteudo image="../assets/avancado.png" titulo="Distribuição 2" texto="Texto de texto para ver se está funcionando perfeitamente"/>
+                    <CConteudo image="../assets/avancado.png" titulo="Conteúdo 2" texto="Descrição sobre o conteúdo"/>
                 </div>
                 <div className="col  pb-4">
-                    <CConteudo image="../assets/avancado.png" titulo="Distribuição 3" texto="Texto de texto para ver se está funcionando perfeitamente"/>
+                    <CConteudo image="../assets/avancado.png" titulo="Conteúdo 3" texto="Descrição sobre o conteúdo"/>
                 </div>
             </div>
         </div>

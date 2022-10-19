@@ -36,9 +36,11 @@ function ModalCadastro() {
                     "imageCode": imageCode,
                     "fkLevel": fkLevel
                 });
+                window.alert("Cadastrado com sucesso!")
         }
         catch (error) {
             console.log("[ERROR] - addUser: ", error)
+            window.alert("Erro ao realizar o cadastro!")
         }
     }
 
@@ -93,6 +95,7 @@ function ModalCadastro() {
                                     width: '90%',
                                     height: 25,
                                     border: 'none',
+                                    color: 'white',
                                     borderBottom: 'solid 3px #cdcdcd',
                                     borderColor: '#5CE1E6',
                                     backgroundColor: 'transparent'
@@ -114,6 +117,7 @@ function ModalCadastro() {
                                 style={{
                                     width: '90%',
                                     height: 25,
+                                    color: 'white',
                                     border: 'none',
                                     borderBottom: 'solid 3px #cdcdcd',
                                     borderColor: '#5CE1E6',
@@ -144,6 +148,7 @@ function ModalCadastro() {
                                 style={{
                                     width: '170%',
                                     height: 25,
+                                    color: 'white',
                                     border: 'none',
                                     borderBottom: 'solid 3px #cdcdcd',
                                     borderColor: '#5CE1E6',
@@ -174,6 +179,7 @@ function ModalCadastro() {
                                 style={{
                                     width: '90%',
                                     height: 25,
+                                    color: 'white',
                                     border: 'none',
                                     borderBottom: 'solid 3px #cdcdcd',
                                     borderColor: '#5CE1E6',
@@ -181,7 +187,8 @@ function ModalCadastro() {
                                 }}
                                 id="examplePassword"
                                 name="password"
-                                placeholder="Password"
+                                placeholder="Senha"
+                                type="password"
                             />
                             <Label for="examplePassword"></Label>
                         </FormGroup>
@@ -196,6 +203,7 @@ function ModalCadastro() {
                                 style={{
                                     width: '90%',
                                     height: 25,
+                                    color: 'white',
                                     border: 'none',
                                     borderBottom: 'solid 3px #cdcdcd',
                                     borderColor: '#5CE1E6',
@@ -203,8 +211,9 @@ function ModalCadastro() {
                                 }}
 
                                 id="examplePassword"
+                                placeholder="Senha"
                                 name="password"
-                                placeholder="Password"
+                                type="password"
                             />
                             <Label for="examplePassword">
 

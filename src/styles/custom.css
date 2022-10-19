@@ -272,19 +272,20 @@ body {
 
 .sociais-esquerda p {
     color: #ffffff;
-    font-size: 25px;
+    font-size: 20px;
     font-weight: bold;
+    margin-top: 5px;
 }
 
 .img-social {
-    width: 80px;    
-    height: 80px;
+    width: 45px;    
+    height: 45px;
     margin-right: 30px;
 }
 
 .img-social:hover {
-    width: 120px;
-    height: 120px;
+    width: 35px;
+    height: 35px;
     transition: 2s;
 }
 
@@ -330,7 +331,7 @@ body {
 
 .sociais-direita p {
     color: #ffffff;
-    font-size: 60px;
+    font-size: 40px;
     font-weight: bold;
     text-align: right;
     margin-right: 80px;

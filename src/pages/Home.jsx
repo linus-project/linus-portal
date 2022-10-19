@@ -49,9 +49,9 @@ export function Home() {
           operacional Linux, transformando a visão que pessoas comuns têm sobre ele e suas distribuições</p>
       </div>
 
-      <div class="em-alta" id="secao-em-alta">
+      {/* <div class="em-alta" id="secao-em-alta">
         <h2>Notícias em alta</h2>
-      </div>
+      </div> */}
 
       <div class="distribuicoes" id="secao-distribuicoes">
         <h2>Principais Distribuições</h2>

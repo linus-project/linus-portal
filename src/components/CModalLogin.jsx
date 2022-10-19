@@ -19,9 +19,11 @@ function ModalLogin() {
                     "username": username,
                     "password": password
                 });
+                window.alert("Login com sucesso!")
         }
         catch (error) {
             console.log("[ERROR] - userLogin: ", error)
+            window.alert("Usuário ou senha senha incorretos!")
         }
     }
 

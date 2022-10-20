@@ -4,8 +4,8 @@ import { useState } from 'react';
 import logoGit from '../assets/github.svg';
 import { IconButton } from '@mui/material';
 import api from '../api';
-// import logoFacebook from '../assets/facebook.png';
-// import logoGoogle from '../assets/google.png'
+import logoFacebook from '../assets/facebook1.png';
+import logoGoogle from '../assets/google.png'
 
 function ModalLogin() {
 
@@ -13,16 +13,23 @@ function ModalLogin() {
     const [password, setPassword] = useState('')
 
     async function userLogin(login) {
+        var success = false;
         try {
             await api.post("/login/username",
                 {
                     "username": username,
                     "password": password
                 });
-                window.alert("Login com sucesso!")
+                success = true;
         }
         catch (error) {
             console.log("[ERROR] - userLogin: ", error)
+            success = false;
+        }
+        if(success == true){
+            window.alert("Login com sucesso!")
+            window.location.href = "http://localhost:3000/distribuicoes"
+        } else {
             window.alert("Usuário ou senha senha incorretos!")
         }
     }
@@ -132,12 +139,12 @@ function ModalLogin() {
 
                         <IconButton style={{ height: 40, marginTop: 20 }}>
 
-                            {/* <img style={{ fontSize: '0', height: 40 }} alt="logoFacebook" src={logoFacebook} /> */}
+                            <img style={{ fontSize: '0', height: 40 }} alt="logoFacebook" src={logoFacebook} />
 
                         </IconButton>
                         <IconButton style={{ height: 40, marginTop: 20 }}>
 
-                            {/* <img style={{ fontSize: '0', height: 40 }} alt="github" src={logoGoogle} /> */}
+                            <img style={{ fontSize: '0', height: 40 }} alt="github" src={logoGoogle} />
 
                         </IconButton>
 

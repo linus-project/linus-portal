@@ -18,7 +18,7 @@ export function Distribuicao() {
                     <CDistribuicao image="../assets/suse.svg" titulo="Distribuição 1" texto="Descrição sobre a distribuição"/>
                 </div>
                 <div className="col">
-                    <CDistribuicao image="../assets/suse.svg" titulo="Distribuição 2" texto="Descrição sobre a distribuição"/>
+                    <CDistribuicao image="../assets/mint.svg" titulo="Distribuição 2" texto="Descrição sobre a distribuição"/>
                 </div>
                 <div className="col">
                     <CDistribuicao image="../assets/debian.svg" titulo="Distribuição 3" texto="Descrição sobre a distribuição"/>

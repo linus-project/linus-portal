@@ -5,6 +5,11 @@ import "../assets/logo-svg.svg"
 import "../assets/user.svg"
 
 function LoggedNavBar() {
+
+    function loggout(){
+        window.location.href = "http://localhost:3000"
+    }
+
     return (
         <Navbar collapseOnSelect expand="lg">
             <Container fluid className="justify-content-center">
@@ -34,17 +39,22 @@ function LoggedNavBar() {
                             <Nav className="me-auto">
                                 <Nav.Item>
                                     <NavDropdown title="Perfil" id="collapsible-nav-dropdown" className="navbar-dropdown mt-1 mr-3" >
+                                        <NavDropdown.Item href=".">Seu Perfil</NavDropdown.Item>
+                                        <NavDropdown.Divider />
                                         <NavDropdown.Item href="./Distribuicoes">Distribuições</NavDropdown.Item>
                                         <NavDropdown.Divider />
                                         <NavDropdown.Item href="./Conteudos">Conteúdos</NavDropdown.Item>
                                         <NavDropdown.Divider />
-                                        <NavDropdown.Item href="#acao1.3">Favoritos</NavDropdown.Item>
-                                        <NavDropdown.Divider />
                                         <NavDropdown.Item href="./visto-por-ultimo">Vistos por ultimo</NavDropdown.Item>
+
+                                        <NavDropdown.Divider />
+                                        <NavDropdown.Item href="#acao1.3">Favoritos</NavDropdown.Item>
+                                        
+                                        
                                     </NavDropdown>
                                 </Nav.Item>
                                 <Nav.Item>
-                                    <Button className="exit-button mt-1" variant="outline-danger">Sair</Button>
+                                    <Button onClick={loggout} className="exit-button mt-1" variant="outline-danger">Sair</Button>
                                 </Nav.Item>
                             </Nav>
                         </Navbar.Collapse>

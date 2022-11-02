@@ -14,8 +14,9 @@ function ModalLogin() {
 
     async function userLogin(login) {
         var success = false;
+        var result = null;
         try {
-            await api.post("/login/username",
+            result = await api.post("/login/username",
                 {
                     "username": username,
                     "password": password
@@ -26,8 +27,11 @@ function ModalLogin() {
             console.log("[ERROR] - userLogin: ", error)
             success = false;
         }
-        if(success == true){
+        if(success === true){
             window.alert("Login com sucesso!")
+            sessionStorage.USERNAME = result.data.username;
+            sessionStorage.IMAGE_CODE = result.data.imageCode
+            sessionStorage.LEVEL = result.data.fkLevel
             window.location.href = "http://localhost:3000/distribuicoes"
         } else {
             window.alert("Usuário ou senha senha incorretos!")

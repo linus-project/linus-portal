@@ -12,26 +12,42 @@ import {
 import "../styles/navbar.css";
 import "../assets/logo-svg.svg";
 import "../assets/user.svg";
+import { useNavigate } from "react-router-dom";
+import api from "../api";
 
-function LoggedNavBar() {
+function LoggedNavBar(props) {
 
+  const navigate = useNavigate();
+  
   if (sessionStorage.USERNAME === undefined) {
-    window.location.href = "http://localhost:3000";
-    return (window.alert("É necessário se autenticar para acessar esta página"))
+    navigate("/");
+    return window.alert("É necessário se autenticar para acessar esta página");
   }
+
+  async function getContent(contentTitle) {
+    try {
+      var result = await api.get(`/content?contentTitle=${contentTitle}`); 
+      console.log(result)
+    } catch (error) {
+      console.log("[ERROR] - getContent(): ", error);
+    }
+  }
+  
 
   function loggout() {
     sessionStorage.clear();
     window.location.href = "http://localhost:3000";
   }
 
+
   return (
-    <Navbar collapseOnSelect expand="lg">
+    <Navbar className="navbar-logged" collapseOnSelect expand="lg">
       <Container fluid className="justify-content-center">
         <Row className="navbar-row" sm={1} lg={4}>
           <Col lg={1} className="mt-1">
             <Navbar.Brand href="#">
               <img
+                className="linus-logo"
                 src={"../assets/logo-svg.svg"}
                 width="108"
                 alt="Logo linus"
@@ -41,10 +57,12 @@ function LoggedNavBar() {
           <Col lg={7}>
             <Form className="d-flex">
               <Form.Control
-                type="Search"
-                placeholder="Search"
+                onKeyUp={(content) => getContent(content.target.value)}
+                type="input"
+                placeholder="Pesquisar"
                 aria-controls="Search"
                 className="mt-1"
+                style={{boxShadowColor: "#ffffff"}}
               />
             </Form>
           </Col>
@@ -57,7 +75,7 @@ function LoggedNavBar() {
               <Nav className="me-auto">
                 <Nav.Item>
                   <NavDropdown
-                    title="Perfil"
+                    title={props.title}
                     id="collapsible-nav-dropdown"
                     className="navbar-dropdown mt-1 mr-3"
                   >
@@ -94,15 +112,9 @@ function LoggedNavBar() {
             </Navbar.Collapse>
           </Col>
           <Col lg={1} className="mt-1">
-            <Navbar.Brand href="#home">
+            {/* <Navbar.Brand href="#home">
               <div className="div-imagem-perfil"></div>
-              {/* <img 
-                            src={"../assets/user.svg"}
-                            width="30"
-                            border-radius="50%"
-                            alt="Logo linus"
-                           /> */}
-            </Navbar.Brand>
+            </Navbar.Brand> */}
           </Col>
         </Row>
       </Container>

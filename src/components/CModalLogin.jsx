@@ -6,11 +6,13 @@ import { IconButton } from "@mui/material";
 import api from "../api";
 import logoFacebook from "../assets/facebook1.png";
 import logoGoogle from "../assets/google.png";
+import { useNavigate } from "react-router-dom";
 
 function ModalLogin() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [filled, setFilled] = useState(false);
+  const navigate = useNavigate();
 
   async function userLogin(login) {
     var success = false;
@@ -26,11 +28,10 @@ function ModalLogin() {
       success = false;
     }
     if (success === true) {
-      window.alert("Login com sucesso!");
       sessionStorage.USERNAME = result.data.username;
       sessionStorage.IMAGE_CODE = result.data.imageCode;
       sessionStorage.LEVEL = result.data.fkLevel;
-      window.location.href = "http://localhost:3000/distribuicoes";
+      navigate("/distribuicoes")
     } else {
       window.alert("Usuário ou senha senha incorretos!");
     }
@@ -92,7 +93,7 @@ function ModalLogin() {
                 borderBottom: "solid 3px #cdcdcd",
                 borderColor: "#5ce1e6",
                 backgroundColor: "transparent",
-                  boxShadow: "none"
+                boxShadow: "none"
               }}
               id="exampleEmail"
               name="email"

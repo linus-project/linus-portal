@@ -6,6 +6,7 @@ import "../styles/main.css";
 import LoggedNavBar from "../components/CLoggedNavBar";
 import { useState, useEffect } from "react";
 import api from "../api";
+import { useNavigate } from "react-router-dom";
 
 export function Distribuicao() {
 
@@ -13,6 +14,8 @@ export function Distribuicao() {
   const [intermediaryDistroList, setIntermediaryDistroList] = useState([]);
   const [advancedDistroList, setAdvancedDistroList] = useState([]);
   const [loggedNavBar, setLoggedNavBar] = useState([]);
+
+  const navigate = useNavigate();
 
   const level = { STARTER: 1, INTERMEDIARY: 2, ADVANCED: 3 };
 
@@ -80,6 +83,7 @@ export function Distribuicao() {
                 <div className="col">
                   <CDistribuicao
                     key={distro.idDistro}
+                    idDistro={distro.idDistro}
                     image={getDistroImage(distro.distroName.toLowerCase())}
                     titulo={distro.distroName}
                   />

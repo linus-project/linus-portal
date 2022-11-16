@@ -5,13 +5,13 @@ import { Conteudos } from "./pages/Conteudos";
 import { VistoPorUltimo } from "./pages/VistoPorUltimo";
 
 
-export function AppRoutes(){
+export function AppRoutes(props){
     return (
         <Router>
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/distribuicoes" element={<Distribuicao />} />
-                <Route path="/conteudos" element={<Conteudos />} />
+                <Route path="/conteudos" element={<Conteudos id={props.idContent} />} />
                 <Route path="/visto-por-ultimo" element={<VistoPorUltimo />} />
             </Routes>
         </Router>

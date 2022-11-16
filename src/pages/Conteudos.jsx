@@ -7,7 +7,7 @@ import LoggedNavBar from "../components/CLoggedNavBar";
 import { useState, useEffect } from "react";
 import api from "../api";
 
-export function Conteudos() {
+export function Conteudos(props) {
 
   const [starterContentList, setStarterContentList] = useState([]);
   const [intermediaryContentList, setIntermediaryContentList] = useState([]);
@@ -16,7 +16,12 @@ export function Conteudos() {
   const level = { STARTER: 1, INTERMEDIARY: 2, ADVANCED: 3 };
 
   async function getStarterContent() {
-    var result = await api.get(`/content/level/${level.STARTER}`);
+    var result;
+    if(props.fkDistro === undefined) {
+      result = await api.get(`/content/level/${level.STARTER}`);
+    } else {
+      result = await api.get(`/content/level/${level.STARTER}`);
+    }
     setStarterContentList(result.data);
   }
 
@@ -65,6 +70,8 @@ export function Conteudos() {
               <>
                 <div className="col pb-4 ">
                   <CConteudo
+                    key={content.idContent}
+                    idContent={content.idContent}
                     image="../assets/basico.png"
                     titulo={content.contentTitle}
                     texto={content.content}

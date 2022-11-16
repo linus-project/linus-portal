@@ -42,7 +42,7 @@ export function Perfil() {
       />
       <div className="container">
         <Row>
-          <Col md="4">
+          <Col md="4" className="mt-5">
             <Form
               style={{
                 width: "100%",
@@ -128,7 +128,7 @@ export function Perfil() {
               </FormGroup>
             </Form>
           </Col>
-          <Col md="4">
+          <Col md="4" className="mt-5">
             <Form
               style={{
                 width: "100%",
@@ -159,7 +159,8 @@ export function Perfil() {
                   name="usuario"
                   placeholder="Nome do usuário"
                   type="text"
-                />
+                >
+                </Input>
                 <Label for="exampleEmail"></Label>
               </FormGroup>
 

@@ -23,10 +23,10 @@ function LoggedNavBar(props) {
 
   const navigate = useNavigate();
 
-  if (sessionStorage.USERNAME === undefined) {
-    navigate("/");
-    return window.alert("É necessário se autenticar para acessar esta página");
-  }
+  // if (sessionStorage.USERNAME === undefined) {
+  //   navigate("/");
+  //   return window.alert("É necessário se autenticar para acessar esta página");
+  // }
 
   async function getContent(contentTitle) {
     try {

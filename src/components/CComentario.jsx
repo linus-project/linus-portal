@@ -1,14 +1,14 @@
 import React from "react";
-import ImgPerfil from "./assets/perfil.svg"
+import imgPerfil from "../assets/perfil.svg";
 
-function Comentario(props) {
+function CComentario() {
     return(
         <>
         <div className="container">
             <div className="background-comentario">
                 <div className="comentario-content">
                     <div className="lado-esquerdo">
-                        <img src={ImgPerfil} alt=""/>
+                        <img src={imgPerfil} alt=""/>
                     </div>
                     <div className="lado-direito">
                         <span>Nome do usuário</span>
@@ -21,5 +21,4 @@ function Comentario(props) {
     )
     
 }
-
-export default Comentario;
+export default CComentario;

@@ -4,6 +4,7 @@ import { Distribuicao } from "./pages/Distribuicao";
 import { Conteudos } from "./pages/Conteudos";
 import { VistoPorUltimo } from "./pages/VistoPorUltimo";
 import { Perfil } from "./pages/Perfil";
+import { Conteudo } from "./pages/Conteudo";
 
 
 export function AppRoutes(props){
@@ -15,6 +16,7 @@ export function AppRoutes(props){
                 <Route path="/conteudos" element={<Conteudos id={props.idContent} />} />
                 <Route path="/visto-por-ultimo" element={<VistoPorUltimo />} />
                 <Route path="/perfil" element={<Perfil />} />
+                <Route path="/conteudo" element={<Conteudo />} />
             </Routes>
         </Router>
     )

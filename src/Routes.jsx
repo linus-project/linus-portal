@@ -5,7 +5,8 @@ import { Conteudos } from "./pages/Conteudos";
 import { VistoPorUltimo } from "./pages/VistoPorUltimo";
 import { Perfil } from "./pages/Perfil";
 import { Conteudo } from "./pages/Conteudo";
-
+import { Noticias } from "./pages/Noticias";
+import { ConteudosFavoritados } from "./pages/ConteudosFavoritados";
 
 export function AppRoutes(props){
     return (
@@ -17,6 +18,8 @@ export function AppRoutes(props){
                 <Route path="/visto-por-ultimo" element={<VistoPorUltimo />} />
                 <Route path="/perfil" element={<Perfil />} />
                 <Route path="/conteudo" element={<Conteudo />} />
+                <Route path="/noticias" element={<Noticias />} />
+                <Route path="/conteudos-favoritados" element={<ConteudosFavoritados />} />
             </Routes>
         </Router>
     )

@@ -1,6 +1,7 @@
 import "../styles/Home.css";
 import "../styles/main.css";
 import Ellipse from "../assets/Ellipse.png";
+import edit from "../assets/edit.svg";
 import CTextoGrande from "../components/CTextoGrande";
 import CTextoPequeno from "../components/CTextoPequeno";
 import LoggedNavBar from "../components/CLoggedNavBar";
@@ -12,7 +13,6 @@ import {
   Col,
   Label,
   Card,
-  CardHeader,
   CardBody,
   CardTitle,
   CardText,
@@ -52,9 +52,9 @@ export function Perfil() {
                 justifyContent: "center",
               }}
             >
-              <FormGroup floating style={{ marginTop: 20 }}>
-                <p style={{ color: "#5ce1e6" }}>Nome</p>
-
+              <FormGroup floating className="d-flex flex-wrap align-items-start"style={{ marginTop: 20 }}>
+                <p style={{ color: "#5ce1e6" }}><b>Nome</b></p>
+                <img src={edit} style={{marginLeft: 10}}alt="" />
                 <Input
                   onKeyUp={isFilled}
                   onChange={(username) => setUsername(username.target.value)}
@@ -77,8 +77,9 @@ export function Perfil() {
                 <Label for="exampleEmail"></Label>
               </FormGroup>
 
-              <FormGroup floating>
-                <p style={{ color: "#5ce1e6" }}>Email</p>
+             <FormGroup floating className="d-flex flex-wrap align-items-start">
+                <p style={{ color: "#5ce1e6" }}><b>Email</b></p>
+                <img src={edit} style={{marginLeft: 10}}alt="" />
                 <Input
                   onKeyUp={isFilled}
                   onChange={(password) => setPassword(password.target.value)}
@@ -102,8 +103,9 @@ export function Perfil() {
                 <Label for="examplePassword"></Label>
               </FormGroup>
 
-              <FormGroup floating>
-                <p style={{ color: "#5ce1e6" }}>Data de Nascimento</p>
+             <FormGroup floating className="d-flex flex-wrap align-items-start">
+                <p style={{ color: "#5ce1e6" }}><b>Data de Nascimento</b></p>
+                <img src={edit} style={{marginLeft: 10}}alt="" />
                 <Input
                   onKeyUp={isFilled}
                   onChange={(password) => setPassword(password.target.value)}
@@ -138,9 +140,9 @@ export function Perfil() {
                 justifyContent: "center",
               }}
             >
-              <FormGroup floating style={{ marginTop: 20 }}>
-                <p style={{ color: "#5ce1e6" }}>Usuário</p>
-
+              <FormGroup floating className="d-flex flex-wrap align-items-start"style={{ marginTop: 20 }}>
+                <p style={{ color: "#5ce1e6" }}><b>Usuário</b></p>
+                <img src={edit} style={{marginLeft: 10}}alt="" />
                 <Input
                   onKeyUp={isFilled}
                   onChange={(username) => setUsername(username.target.value)}
@@ -164,8 +166,9 @@ export function Perfil() {
                 <Label for="exampleEmail"></Label>
               </FormGroup>
 
-              <FormGroup floating>
-                <p style={{ color: "#5ce1e6" }}>Senha</p>
+             <FormGroup floating className="d-flex flex-wrap align-items-start">
+                <p style={{ color: "#5ce1e6" }}><b>Senha</b></p>
+                <img src={edit} style={{marginLeft: 10}}alt="" />
                 <Input
                   onKeyUp={isFilled}
                   onChange={(password) => setPassword(password.target.value)}
@@ -189,8 +192,9 @@ export function Perfil() {
                 <Label for="examplePassword"></Label>
               </FormGroup>
 
-              <FormGroup floating>
-                <p style={{ color: "#5ce1e6" }}>Telefone</p>
+             <FormGroup floating className="d-flex flex-wrap align-items-start">
+                <p style={{ color: "#5ce1e6"}}><b>Telefone</b></p>
+                <img src={edit} style={{marginLeft: 10}}alt="" />
                 <Input
                   onKeyUp={isFilled}
                   onChange={(password) => setPassword(password.target.value)}

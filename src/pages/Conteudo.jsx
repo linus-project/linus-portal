@@ -8,62 +8,78 @@ import favoritoVazio from "../assets/favoritar-vazio.svg";
 import curtir from "../assets/curtir.svg";
 import descurtir from "../assets/descurtir.svg";
 import discord from "../assets/discord-icon.svg";
+import { useState, useEffect } from "react";
+import api from "../api";
 
-export function Conteudo(props) {
-    return(
+export function Conteudo() {
+  var idContent = sessionStorage.ID_CONTENT;
+
+  const [content, setContent] = useState([]);
+
+  async function getContent() {
+    var result = await api.get(`/content/${idContent}`);
+    setContent(result.data);
+  }
+
+  useEffect(() => {
+    getContent();
+  }, []);
+
+  function sortContent() {
+    if (content.content?.length < 1000) {
+      return (
         <>
-        <LoggedNavBar title={"Conteúdo"}/>
-        <div className="container">
-            <div className="titulo">
-                <h1>Conteúdo 1</h1>
-                <img src={favoritoVazio} alt="" />
-            </div>
-        </div>
-        <div className="texto">
-            <CConteudo1 textoParte1="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque consequat iaculis elit vel
-                        porta.
-                        Vestibulum consequat mollis hendrerit. Integer lacinia molestie felis, a elementum nisi ultrices
-                        non.
-                        Praesent sed quam ut justo tincidunt ullamcorper. Vivamus cursus, arcu eu pellentesque
-                        sollicitudin,
-                        nisl dolor fermentum ipsum, non suscipit risus nulla eu lectus. Sed a bibendum libero. Ut
-                        eleifend
-                        ac
-                        orci vitae varius. Nulla efficitur felis elit, sit amet varius mi placerat eu."/>
-            <CConteudo2 textoParte1="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque consequat iaculis elit vel
-                        porta.
-                        Vestibulum consequat mollis hendrerit. Integer lacinia molestie felis, a elementum nisi ultrices
-                        non.
-                        Praesent sed quam ut justo tincidunt ullamcorper. Vivamus cursus, arcu eu pellentesque
-                        sollicitudin,
-                        nisl dolor fermentum ipsum, non suscipit risus nulla eu lectus. Sed a bibendum libero. Ut
-                        eleifend
-                        ac
-                        orci vitae varius. Nulla efficitur felis elit, sit amet varius mi placerat eu." />
-        </div>
-        <div class="reacoes">
-            <img src={curtir} alt="" />
-            <img src={descurtir} alt="" />
-        </div>
-        <div class="header-comentarios">
-            <h2>Comentar:</h2>
-            <img src={discord} alt="" />
-        </div>
-        <div class="ipt_comentar">
-            <input type="text" placeholder=" Escreva seu comentario aqui..." />
-            <button>Enviar</button>
-        </div>
-        <div class="header-comentarios">
-            <div className="comentarios">
-            <h2>Comentários:</h2>
-            <CComentario />
-            <CComentario />
-            </div>
-
-
-        </div>
-
+          <CConteudo1 textoParte1={content.content?.substring(0, 500)} />
         </>
-    )
+      );
+    } else if (content.content?.length < 1500) {
+        return (
+            <>
+              <CConteudo1 textoParte1={content.content?.substring(0, 500)} />
+              <CConteudo2 textoParte1={content.content?.substring(500, 1000)} />
+            </>
+          );
+    } else {
+        return (
+            <>
+              <CConteudo1 textoParte1={content.content?.substring(0, 500)} />
+              <CConteudo2 textoParte1={content.content?.substring(500, 1000)} />
+              <CConteudo2 textoParte1={content.content?.substring(1000, 1500)} />
+            </>
+          );
+    }
+  }
+
+  return (
+    <>
+      <LoggedNavBar title={"Conteúdo"} />
+      <div className="container">
+        <div className="titulo">
+          <h1>{content.contentTitle}</h1>
+          <img src={favoritoVazio} alt="" />
+        </div>
+      </div>
+      <div className="texto">{sortContent()}</div>
+      <div className="reacoes">
+        <img src={curtir} alt="" />
+        <img src={descurtir} alt="" />
+      </div>
+      <div className="header-comentarios">
+        <h2>Comentar:</h2>
+        <img src={discord} alt="" />
+      </div>
+      <div className="ipt_comentar">
+        <input type="text" placeholder=" Escreva seu comentario aqui..." />
+        <button>Enviar</button>
+      </div>
+      <div className="header-comentarios">
+        <div className="comentarios">
+          <h2>Comentários:</h2>
+          <CComentario />
+          <CComentario />
+        </div>
+      </div>
+    </>
+  );
 }
 export default Conteudo;

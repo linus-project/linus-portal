@@ -17,16 +17,24 @@ import { useNavigate } from "react-router-dom";
 import api from "../api";
 
 function LoggedNavBar(props) {
-  
   const [searchListModal, setSearchListModal] = useState("");
   const [searchList, setSearchList] = useState("");
 
   const navigate = useNavigate();
 
-  // if (sessionStorage.USERNAME === undefined) {
-  //   navigate("/");
-  //   return window.alert("É necessário se autenticar para acessar esta página");
-  // }
+  if (sessionStorage.USERNAME === undefined) {
+    navigate("/");
+    return window.alert("É necessário se autenticar para acessar esta página");
+  }
+
+  function redirectToContent(idContent) {
+    if(sessionStorage.ID_CONTENT != undefined) {
+      sessionStorage.ID_CONTENT = idContent;
+      return navigate(0);
+    }
+    sessionStorage.ID_CONTENT = idContent;
+    return navigate(`/conteudo`);
+  }
 
   async function getContent(contentTitle) {
     try {
@@ -44,7 +52,7 @@ function LoggedNavBar(props) {
         <>
           <Card
             className={"position-absolute"}
-            style={{ marginLeft: "28vh", width: "60%" }}
+            style={{ marginLeft: "31vh", width: "60%" }}
           >
             <CardBody
               style={{ alignItems: "center", justifyContent: "center" }}
@@ -52,7 +60,11 @@ function LoggedNavBar(props) {
               {searchList.slice(0, 5).map((content) => {
                 return (
                   <>
-                    <CardText style={{ cursor: "pointer" }}>
+                    <CardText
+                      key={content.idContent}
+                      onClick={() => redirectToContent(content.idContent)}
+                      style={{ cursor: "pointer" }}
+                    >
                       {content.contentTitle}
                     </CardText>
                   </>
@@ -72,7 +84,7 @@ function LoggedNavBar(props) {
 
   function loggout() {
     sessionStorage.clear();
-    window.location.href = "http://localhost:3000";
+    navigate("/");
   }
 
   return (
@@ -115,22 +127,30 @@ function LoggedNavBar(props) {
                       id="collapsible-nav-dropdown"
                       className="navbar-dropdown mt-1 mr-3"
                     >
-                      <NavDropdown.Item href=".">Seu Perfil</NavDropdown.Item>
+                      <NavDropdown.Item onClick={() => navigate("/perfil")}>
+                        Seu Perfil
+                      </NavDropdown.Item>
                       <NavDropdown.Divider />
-                      <NavDropdown.Item href="./Distribuicoes">
+                      <NavDropdown.Item
+                        onClick={() => navigate("/distribuicoes")}
+                      >
                         Distribuições
                       </NavDropdown.Item>
                       <NavDropdown.Divider />
-                      <NavDropdown.Item href="./Conteudos">
+                      <NavDropdown.Item onClick={() => navigate("/conteudos")}>
                         Conteúdos
                       </NavDropdown.Item>
                       <NavDropdown.Divider />
-                      <NavDropdown.Item href="./visto-por-ultimo">
+                      <NavDropdown.Item
+                        onClick={() => navigate("/visto-por-ultimo")}
+                      >
                         Vistos por ultimo
                       </NavDropdown.Item>
 
                       <NavDropdown.Divider />
-                      <NavDropdown.Item href="#acao1.3">
+                      <NavDropdown.Item
+                        onClick={() => navigate("/conteudos-favoritados")}
+                      >
                         Favoritos
                       </NavDropdown.Item>
                     </NavDropdown>

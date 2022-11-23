@@ -10,6 +10,8 @@ import { useNavigate } from "react-router-dom";
 
 export function Distribuicao() {
 
+  sessionStorage.removeItem('ID_CONTENT');
+
   const [starterDistroList, setStarterDistroList] = useState([]);
   const [intermediaryDistroList, setIntermediaryDistroList] = useState([]);
   const [advancedDistroList, setAdvancedDistroList] = useState([]);

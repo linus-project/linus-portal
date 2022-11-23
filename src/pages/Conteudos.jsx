@@ -7,7 +7,9 @@ import LoggedNavBar from "../components/CLoggedNavBar";
 import { useState, useEffect } from "react";
 import api from "../api";
 
-export function Conteudos(props) {
+export function Conteudos() {
+
+  sessionStorage.removeItem("ID_CONTENT");
 
   const [starterContentList, setStarterContentList] = useState([]);
   const [intermediaryContentList, setIntermediaryContentList] = useState([]);
@@ -16,12 +18,7 @@ export function Conteudos(props) {
   const level = { STARTER: 1, INTERMEDIARY: 2, ADVANCED: 3 };
 
   async function getStarterContent() {
-    var result;
-    if(props.fkDistro === undefined) {
-      result = await api.get(`/content/level/${level.STARTER}`);
-    } else {
-      result = await api.get(`/content/level/${level.STARTER}`);
-    }
+    var result = await api.get(`/content/level/${level.STARTER}`);
     setStarterContentList(result.data);
   }
 
@@ -48,7 +45,7 @@ export function Conteudos(props) {
 
   return (
     <>
-      <LoggedNavBar  title={"Conteúdos"} style={{zindex:1}}/>
+      <LoggedNavBar title={"Conteúdos"} style={{ zindex: 1 }} />
 
       <CTextoGrande text="Conteúdo" class="pl-5 fw-bold pt-5" />
 
@@ -74,7 +71,7 @@ export function Conteudos(props) {
                     idContent={content.idContent}
                     image="../assets/basico.png"
                     titulo={content.contentTitle}
-                    texto={content.content}
+                    texto={content.content?.substring(0, 20) + "..."}
                   />
                 </div>
               </>
@@ -96,9 +93,11 @@ export function Conteudos(props) {
               <>
                 <div className="col pb-4 ">
                   <CConteudo
+                    key={content.idContent}
+                    idContent={content.idContent}
                     image="../assets/intermediario.png"
                     titulo={content.contentTitle}
-                    texto={content.content}
+                    texto={content.content?.substring(0, 20) + "..."}
                   />
                 </div>
               </>
@@ -116,9 +115,11 @@ export function Conteudos(props) {
               <>
                 <div className="col pb-4 ">
                   <CConteudo
+                    key={content.idContent}
+                    idContent={content.idContent}
                     image="../assets/avancado.png"
                     titulo={content.contentTitle}
-                    texto={content.content}
+                    texto={content.content?.substring(0, 20) + "..."}
                   />
                 </div>
               </>

@@ -28,6 +28,9 @@ function ModalLogin() {
       success = false;
     }
     if (success === true) {
+      sessionStorage.ID_USER = result.data.idUser;
+      sessionStorage.NAME = result.data.name;
+      sessionStorage.EMAIL = result.data.email;
       sessionStorage.USERNAME = result.data.username;
       sessionStorage.IMAGE_CODE = result.data.imageCode;
       sessionStorage.LEVEL = result.data.fkLevel;

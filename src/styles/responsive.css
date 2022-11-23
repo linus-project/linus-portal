@@ -117,4 +117,17 @@
         margin-left: 0px;
 
     }
+
+    .navbar-logged input {
+        display: none;
+    }
+
+    .row-cols-sm-1>* {
+        width: 0%;
+    }
+
+    .img-parte-1-3,.img-parte-2-4 {
+        display: none;
+    }
+
 }

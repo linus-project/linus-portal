@@ -54,8 +54,13 @@ export function Conteudo(props) {
             <button>Enviar</button>
         </div>
         <div class="header-comentarios">
+            <div className="comentarios">
             <h2>Comentários:</h2>
             <CComentario />
+            <CComentario />
+            </div>
+
+
         </div>
 
         </>

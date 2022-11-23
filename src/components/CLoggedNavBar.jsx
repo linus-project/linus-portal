@@ -119,9 +119,9 @@ function LoggedNavBar(props) {
                 aria-controls="responsive-navbar-nav"
                 className="my-3"
               />
-              <Navbar.Collapse id="responsive-navbar-nav">
-                <Nav className="me-auto">
-                  <Nav.Item>
+              <Navbar.Collapse id="responsive-navbar-nav" >
+                <Nav className="me-auto" >
+                  <Nav.Item >
                     <NavDropdown
                       title={props.title}
                       id="collapsible-nav-dropdown"
@@ -131,7 +131,7 @@ function LoggedNavBar(props) {
                         Seu Perfil
                       </NavDropdown.Item>
                       <NavDropdown.Divider />
-                      <NavDropdown.Item
+                      <NavDropdown.Item 
                         onClick={() => navigate("/distribuicoes")}
                       >
                         Distribuições
@@ -144,14 +144,20 @@ function LoggedNavBar(props) {
                       <NavDropdown.Item
                         onClick={() => navigate("/visto-por-ultimo")}
                       >
-                        Vistos por ultimo
+                        Vistos por Último
                       </NavDropdown.Item>
 
                       <NavDropdown.Divider />
                       <NavDropdown.Item
                         onClick={() => navigate("/conteudos-favoritados")}
                       >
-                        Favoritos
+                        Favoritados
+                      </NavDropdown.Item>
+                      <NavDropdown.Divider />
+                      <NavDropdown.Item
+                        onClick={() => navigate("/noticias")}
+                      >
+                        Notícias
                       </NavDropdown.Item>
                     </NavDropdown>
                   </Nav.Item>

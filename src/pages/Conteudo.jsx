@@ -69,7 +69,7 @@ export function Conteudo() {
         <img src={discord} alt="" />
       </div>
       <div className="ipt_comentar">
-        <input type="text" placeholder=" Escreva seu comentario aqui..." />
+        <input type="text" className="mr-2" placeholder=" Escreva seu comentario aqui..." />
         <button>Enviar</button>
       </div>
       <div className="header-comentarios">

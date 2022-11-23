@@ -47,7 +47,7 @@ export function Conteudos() {
     <>
       <LoggedNavBar title={"Conteúdos"} style={{ zindex: 1 }} />
 
-      <CTextoGrande text="Conteúdo" class="pl-5 fw-bold pt-5" />
+      <CTextoGrande text="Conteúdos" class="pl-5 fw-bold pt-5" />
 
       <CTextoPequeno
         text="Acompanhe abaixo o conteúdo sugerido, de acordo com o nivel de dificuldade"
@@ -65,14 +65,14 @@ export function Conteudos() {
           {starterContentList.map((content) => {
             return (
               <>
-                <div className="col pb-4 ">
-                  <CConteudo
-                    key={content.idContent}
-                    idContent={content.idContent}
-                    image="../assets/basico.png"
-                    titulo={content.contentTitle}
-                    texto={content.content?.substring(0, 20) + "..."}
-                  />
+                <div className="col pb-3 ">
+                    <CConteudo
+                      key={content.idContent}
+                      idContent={content.idContent}
+                      image="../assets/basico.png"
+                      titulo={content.contentTitle}
+                      texto={content.content?.substring(0, 20) + "..."}
+                    />
                 </div>
               </>
             );

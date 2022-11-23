@@ -17,7 +17,7 @@ export function VistoPorUltimo() {
   return (
     <>
     <LoggedNavBar title={"Visto por útimo"}/>
-       <CTextoGrande text="Visto por Último" class="pl-5 fw-bold pt-5"/>
+       <CTextoGrande text="Conteúdos Visto por Último" class="pl-5 fw-bold pt-5"/>
        <CTextoPequeno text="Acompanhe abaixo o conteúdo sugerido, de acordo com o nivel de dificuldade" class="pl-5 fw-lighter mb-20"/>
 
        <div className="container text-left">

@@ -1,11 +1,13 @@
 import React from "react";
 import "../styles/comentario.css";
 import "../styles/conteudo.css";
-import img2 from "../assets/parte-2.svg";
+import img3 from "../assets/parte-3.svg";
+import img4 from "../assets/parte-4.svg";
 export function CConteudo2() {
     return(
         <>
             <div class="txt-img">
+            <img src={img3} alt="" class="img-parte-1-3" />
                 <div class="texto-conteudo">
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque consequat iaculis elit vel
                         porta.
@@ -58,7 +60,7 @@ export function CConteudo2() {
                         ac
                         orci vitae varius. Nulla efficitur felis elit, sit amet varius mi placerat eu. </p>
                 </div>
-                <img src={img2} alt="" class="img-parte" />
+                <img src={img4} alt="" class="img-parte-2-4" />
             </div>
         </>
     )

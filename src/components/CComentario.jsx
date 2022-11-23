@@ -4,7 +4,7 @@ import imgPerfil from "../assets/perfil.svg";
 function CComentario() {
     return(
         <>
-        <div className="container">
+        <div className="container-comentario">
             <div className="background-comentario">
                 <div className="comentario-content">
                     <div className="lado-esquerdo">

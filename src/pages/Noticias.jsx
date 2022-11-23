@@ -1,8 +1,8 @@
 import CNoticia1 from "../components/CNoticia1";
+import CNoticia2 from "../components/CNoticia2";
 import LoggedNavBar from "../components/CLoggedNavBar";
 import CTextoGrande from "../components/CTextoGrande";
 import CTextoPequeno from "../components/CTextoPequeno";
-import { Row } from "reactstrap";
 export function Noticias() {
     return (
         <>
@@ -12,9 +12,10 @@ export function Noticias() {
                 text="Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fu."
                 class="pl-5 fw-lighter mb-20"
             />
-            <Row>
-                <CNoticia1 />
-            </Row>
+            <div className="container">
+                <CNoticia1 titulo="xxxxxx" subTitulo="xxx" textoPostagem="postado a 2 horas átras" />
+                <CNoticia2 titulo="xxxxxx" subTitulo="xxx" textoPostagem="postado a 2 horas átras" />
+            </div>
         </>
     )
 }

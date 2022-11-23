@@ -2,7 +2,7 @@ import React from "react";
 import "../styles/comentario.css";
 import "../styles/conteudo.css";
 import img3 from "../assets/parte-3.svg";
-import img4 from "../assets/parte-4.svg";
+// import img4 from "../assets/parte-4.svg";
 export function CConteudo2(props) {
     return(
         <>

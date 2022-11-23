@@ -4,6 +4,14 @@ import CTextoGrande from '../components/CTextoGrande';
 import CTextoPequeno from '../components/CTextoPequeno';
 import { CConteudo } from '../components/CConteudo';
 import LoggedNavBar from '../components/CLoggedNavBar';
+// import React, { useState } from 'react';
+// import {
+//   Carousel,
+//   CarouselItem,
+//   CarouselControl,
+//   CarouselIndicators,
+//   CarouselCaption,
+// } from 'reactstrap';
 
 export function VistoPorUltimo() {
   return (

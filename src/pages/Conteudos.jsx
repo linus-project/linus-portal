@@ -8,8 +8,10 @@ import { useState, useEffect } from "react";
 import api from "../api";
 
 export function Conteudos() {
+  
+  const idDistro = sessionStorage.ID_DISTRO;
 
-  sessionStorage.removeItem("ID_CONTENT");
+  sessionStorage.removeItem("ID_DISTRO");
 
   const [starterContentList, setStarterContentList] = useState([]);
   const [intermediaryContentList, setIntermediaryContentList] = useState([]);
@@ -18,18 +20,47 @@ export function Conteudos() {
   const level = { STARTER: 1, INTERMEDIARY: 2, ADVANCED: 3 };
 
   async function getStarterContent() {
-    var result = await api.get(`/content/level/${level.STARTER}`);
+    var result = null;
+    if (idDistro != undefined) {
+      result = await api.get(
+        `/content/distro/${idDistro}/level/${level.STARTER}`
+      );
+    } else {
+      result = await api.get(`/content/level/${level.STARTER}`);
+    }
     setStarterContentList(result.data);
   }
 
   async function getIntermediaryContent() {
-    var result = await api.get(`/content/level/${level.INTERMEDIARY}`);
+    var result = null;
+    if (idDistro != undefined) {
+      result = await api.get(
+        `/content/distro/${idDistro}/level/${level.INTERMEDIARY}`
+      );
+    } else {
+      result = await api.get(`/content/level/${level.INTERMEDIARY}`);
+    }
     setIntermediaryContentList(result.data);
   }
 
   async function getAdvancedContent() {
-    var result = await api.get(`/content/level/${level.ADVANCED}`);
-    setAdvancedContentList(result.data);
+    var result = null;
+    var success = false;
+    try {
+      if (idDistro != undefined) {
+        result = await api.get(
+          `/content/distro/${idDistro}/level/${level.ADVANCED}`
+        );
+      } else {
+        result = await api.get(`/content/level/${level.ADVANCED}`);
+      }
+      success = true;
+    } catch (error) {
+      console.log("[ERROR] - getAdvancedContend: ", error)
+    }
+    if(success == true){
+      setAdvancedContentList(result.data);      
+    }
   }
 
   useEffect(

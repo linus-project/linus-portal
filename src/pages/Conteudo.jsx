@@ -3,6 +3,8 @@ import "../styles/main.css";
 import LoggedNavBar from "../components/CLoggedNavBar";
 import CConteudo1 from "../components/CConteudo1";
 import CConteudo2 from "../components/CConteudo2";
+import CConteudo3 from "../components/CConteudo3";
+import CConteudo4 from "../components/CConteudo4";
 import CComentario from "../components/CComentario";
 import favoritoVazio from "../assets/favoritar-vazio.svg";
 import curtir from "../assets/curtir.svg";
@@ -15,6 +17,10 @@ export function Conteudo() {
   var idContent = sessionStorage.ID_CONTENT;
 
   const [content, setContent] = useState([]);
+
+  function isFavorited() {
+    return
+  }
 
   async function getContent() {
     var result = await api.get(`/content/${idContent}`);
@@ -32,21 +38,30 @@ export function Conteudo() {
           <CConteudo1 textoParte1={content.content?.substring(0, 500)} />
         </>
       );
-    } else if (content.content?.length < 1500) {
-        return (
-            <>
-              <CConteudo1 textoParte1={content.content?.substring(0, 500)} />
-              <CConteudo2 textoParte1={content.content?.substring(500, 1000)} />
-            </>
-          );
+    } else if (content.content?.length < 2000) {
+      return (
+        <>
+          <CConteudo1 textoParte1={content.content?.substring(0, 1000)} />
+          <CConteudo2 textoParte1={content.content?.substring(1000, 2000)} />
+        </>
+      );
+    } else if (content.content?.length < 3000) {
+      return (
+        <>
+          <CConteudo1 textoParte1={content.content?.substring(0, 1000)} />
+          <CConteudo2 textoParte1={content.content?.substring(1000, 2000)} />
+          <CConteudo3 textoParte1={content.content?.substring(2000, 3000)} />
+        </>
+      );
     } else {
-        return (
-            <>
-              <CConteudo1 textoParte1={content.content?.substring(0, 500)} />
-              <CConteudo2 textoParte1={content.content?.substring(500, 1000)} />
-              <CConteudo2 textoParte1={content.content?.substring(1000, 1500)} />
-            </>
-          );
+      return (
+        <>
+          <CConteudo1 textoParte1={content.content?.substring(0, 1000)} />
+          <CConteudo2 textoParte1={content.content?.substring(1000, 2000)} />
+          <CConteudo3 textoParte1={content.content?.substring(2000, 3000)} />
+          <CConteudo4 textoParte1={content.content?.substring(3000, 4000)} />
+        </>
+      );
     }
   }
 
@@ -56,7 +71,7 @@ export function Conteudo() {
       <div className="container">
         <div className="titulo">
           <h1>{content.contentTitle}</h1>
-          <img src={favoritoVazio} alt="" />
+          <img className="favoritar" src={isFavorited} alt="" />
         </div>
       </div>
       <div className="texto">{sortContent()}</div>
@@ -69,7 +84,11 @@ export function Conteudo() {
         <img src={discord} alt="" />
       </div>
       <div className="ipt_comentar">
-        <input type="text" className="mr-2" placeholder=" Escreva seu comentario aqui..." />
+        <input
+          type="text"
+          className="mr-2"
+          placeholder=" Escreva seu comentario aqui..."
+        />
         <button>Enviar</button>
       </div>
       <div className="header-comentarios">

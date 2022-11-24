@@ -6,6 +6,7 @@ export function CConteudo2(props) {
     return(
         <>
             <div class="txt-img">
+            <img src={img2} alt="" style={{opacity: 0}} class="img-parte-2-4" />
                 <div class="texto-conteudo">
                 <p> {props.textoParte1} </p>
                     <p> {props.textoParte2} </p>

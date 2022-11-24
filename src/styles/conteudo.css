@@ -139,3 +139,7 @@ html {
     font-weight: bold;
     background-color: #52BCBF;
 }
+
+.favoritar:hover {
+    cursor: pointer;
+}

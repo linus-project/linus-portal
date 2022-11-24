@@ -1,8 +1,8 @@
 import React from "react";
 import "../styles/comentario.css";
 import "../styles/conteudo.css";
-import img3 from "../assets/parte-.svg";
-export function CConteudo1(props) {
+import img3 from "../assets/parte-3.svg";
+export function CConteudo3(props) {
     return(
         <>
             <div class="txt-img">
@@ -14,8 +14,9 @@ export function CConteudo1(props) {
                     <p> {props.textoParte4} </p>
                     <p> {props.textoParte5}</p>
                 </div>
+                <img src={img3} alt="" style={{opacity: 0}} class="img-parte-2-4" />
             </div>
         </>
     )
 }
-export default CConteudo1;
+export default CConteudo3;

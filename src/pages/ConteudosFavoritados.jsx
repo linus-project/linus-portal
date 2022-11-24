@@ -8,8 +8,6 @@ import { useState, useEffect } from "react";
 import api from "../api";
 
 export function ConteudosFavoritados() {
-
-  sessionStorage.removeItem('ID_CONTENT');
   
   const [starterContentList, setStarterContentList] = useState([]);
   const [intermediaryContentList, setIntermediaryContentList] = useState([]);

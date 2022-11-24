@@ -14,6 +14,7 @@ export function CConteudo1(props) {
                     <p> {props.textoParte4} </p>
                     <p> {props.textoParte5}</p>
                 </div>
+                <img src={img1} alt="" style={{opacity: 0}} class="img-parte-2-4" />
             </div>
         </>
     )

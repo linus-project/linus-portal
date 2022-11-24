@@ -10,31 +10,17 @@ import { useNavigate } from "react-router-dom";
 
 export function Distribuicao() {
 
-  sessionStorage.removeItem('ID_CONTENT');
+  sessionStorage.removeItem("ID_DISTRO");
 
   const [starterDistroList, setStarterDistroList] = useState([]);
   const [intermediaryDistroList, setIntermediaryDistroList] = useState([]);
   const [advancedDistroList, setAdvancedDistroList] = useState([]);
   const [loggedNavBar, setLoggedNavBar] = useState([]);
 
-  const navigate = useNavigate();
-
   const level = { STARTER: 1, INTERMEDIARY: 2, ADVANCED: 3 };
 
   function getDistroImage(distroName) {
     return `../assets/${distroName}.svg`;
-  }
-
-  function getLevel(idLevel) {
-    if (idLevel === level.STARTER) {
-      return "Iniciante";
-    }
-    if (idLevel === level.INTERMEDIARY) {
-      return "Intermediário";
-    }
-    if (idLevel === level.ADVANCED) {
-      return "Avançado";
-    }
   }
 
   async function getStarterDistro() {
@@ -65,7 +51,7 @@ export function Distribuicao() {
 
   return (
     <>
-      <LoggedNavBar title={"Distribuições"}/>
+      <LoggedNavBar title={"Distribuições"} />
       <CTextoGrande text="Distribuições" class="fs-1 pl-5 fw-bold pt-5" />
       <CTextoPequeno
         text="Selecione a distribuição e veja os planos de estudos disponíveis para você em cada uma delas:"
@@ -109,6 +95,7 @@ export function Distribuicao() {
                 <div className="col">
                   <CDistribuicao
                     key={distro.idDistro}
+                    idDistro={distro.idDistro}
                     image={getDistroImage(distro.distroName.toLowerCase())}
                     titulo={distro.distroName}
                   />
@@ -128,6 +115,7 @@ export function Distribuicao() {
                 <div className="col">
                   <CDistribuicao
                     key={distro.idDistro}
+                    idDistro={distro.idDistro}
                     image={getDistroImage(distro.distroName.toLowerCase())}
                     titulo={distro.distroName}
                   />

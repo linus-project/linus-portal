@@ -11,12 +11,12 @@ body {
 
 .container-comentario {
     width: 100%;
-    margin-left: 10%;
-    margin-right: 10%;
+    /* margin-left: 5%;
+    margin-right: 5%; */
     margin-bottom: 30px;
 }
 .background-comentario {
-    width: 80%;
+    width: 100%;
     height: auto;
     background-color: #353333;
 }

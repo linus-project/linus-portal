@@ -102,7 +102,7 @@ export function Conteudos() {
                       idContent={content.idContent}
                       image="../assets/basico.png"
                       titulo={content.contentTitle}
-                      texto={content.content?.substring(0, 20) + "..."}
+                      texto={content.content}
                     />
                 </div>
               </>

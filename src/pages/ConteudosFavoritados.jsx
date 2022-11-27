@@ -17,7 +17,7 @@ export function ConteudosFavoritados() {
 
   async function getStarterContent() {
     var result = await api.get(
-      `/content/favorite?idUser=${sessionStorage.ID_USER}&level=${level.STARTER}`
+      `/content/favorite/level?idUser=${sessionStorage.ID_USER}&level=${level.STARTER}`
     );
     setStarterContentList(result.data);
   }

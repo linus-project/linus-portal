@@ -7,19 +7,46 @@ import CConteudo3 from "../components/CConteudo3";
 import CConteudo4 from "../components/CConteudo4";
 import CComentario from "../components/CComentario";
 import favoritoVazio from "../assets/favoritar-vazio.svg";
+import favoritoCheio from "../assets/favoritar-cheio.svg";
 import curtir from "../assets/curtir.svg";
 import descurtir from "../assets/descurtir.svg";
 import discord from "../assets/discord-icon.svg";
 import { useState, useEffect } from "react";
 import api from "../api";
+import { useNavigate } from "react-router-dom";
 
 export function Conteudo() {
+
+  const navigate = useNavigate();
+
   var idContent = sessionStorage.ID_CONTENT;
+  var idUser = sessionStorage.ID_USER;
 
   const [content, setContent] = useState([]);
+  const [favorite, setFavorite] = useState(false);
 
-  function isFavorited() {
-    return
+  async function isFavorite() {
+    var result = false;
+    try {
+      result = await api.get(
+        `/content/favorite?idUser=${idUser}&idContent=${idContent}`
+      );
+    } catch (error) {
+      console.log(`[ERROR] - isFavorited`, error);
+    }
+    setFavorite(result.data);
+  }
+
+  async function favoriteContent() {
+    try {
+      await api.post("/content/favorite", {
+        fkUser: idUser,
+        fkContent: idContent,
+      });
+    } catch (error) {
+      console.log(`[ERROR] - favoriteContent`, error);
+    }
+    isFavorite();
   }
 
   async function getContent() {
@@ -29,6 +56,7 @@ export function Conteudo() {
 
   useEffect(() => {
     getContent();
+    isFavorite();
   }, []);
 
   function sortContent() {
@@ -71,7 +99,12 @@ export function Conteudo() {
       <div className="container">
         <div className="titulo">
           <h1>{content.contentTitle}</h1>
-          <img className="favoritar" src={isFavorited} alt="" />
+          <img
+            className="favoritar"
+            onClick={() => favoriteContent()}
+            src={favorite ? favoritoCheio : favoritoVazio}
+            alt=""
+          />
         </div>
       </div>
       <div className="texto">{sortContent()}</div>
@@ -81,7 +114,9 @@ export function Conteudo() {
       </div>
       <div className="header-comentarios">
         <h2>Comentar:</h2>
-        <a href="#####"><img src={discord} alt="" /></a>
+        <a href="#####">
+          <img src={discord} alt="" />
+        </a>
       </div>
       <div className="ipt_comentar">
         <input

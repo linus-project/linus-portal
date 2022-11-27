@@ -21,7 +21,7 @@ export function CConteudo(props) {
         <CardBody  style={{backgroundColor: "#9400D3"}}  >
           <CardTitle tag="h4" style={{color: "#52BCBF"}}>{props.titulo}</CardTitle>
           <CardText>
-            <p className="text-light">{props.texto}</p>
+            <p className="text-light">{props.texto?.substring(0, 20) + "..."}</p>
           </CardText>
         </CardBody>
       </Card>

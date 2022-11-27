@@ -41,6 +41,12 @@ function ModalLogin() {
     }
   }
 
+  const keyHandler = (event) => {
+    if (event.keyCode === 13 && filled) {
+      userLogin();
+    }
+  };
+
   function isFilled() {
     if (username === "" || password === "") {
       setFilled(false);
@@ -88,6 +94,7 @@ function ModalLogin() {
             <Input
               onKeyUp={isFilled}
               onChange={(username) => setUsername(username.target.value)}
+              onKeyDown={(event) => keyHandler(event)}
               style={{
                 width: 300,
                 height: 25,
@@ -112,6 +119,7 @@ function ModalLogin() {
             <Input
               onKeyUp={isFilled}
               onChange={(password) => setPassword(password.target.value)}
+              onKeyDown={(event) => keyHandler(event)}
               style={{
                 width: 300,
                 height: 25,

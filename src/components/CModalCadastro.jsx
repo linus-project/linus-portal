@@ -6,8 +6,10 @@ import api from "../api";
 import { useState } from "react";
 import logoFacebook from "../assets/facebook1.png";
 import logoGoogle from "../assets/google.png";
+import { useNavigate } from "react-router-dom";
 
 function ModalCadastro() {
+  const navigate = useNavigate();
   const [name, setName] = useState("");
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
@@ -21,10 +23,17 @@ function ModalCadastro() {
   const [fkLevel, setFkLevel] = useState(1);
   const [filled, setFilled] = useState(false);
 
+  const keyHandler = (event) => {
+    if (event.keyCode === 13 && filled) {
+      addUser();
+    }
+  };
+
   async function addUser() {
+    var result = null;
     var success = false;
     try {
-      await api.post("/users/add", {
+      result = await api.post("/users/add", {
         name: name,
         username: username,
         email: email,
@@ -43,7 +52,14 @@ function ModalCadastro() {
       window.alert("Erro ao realizar o cadastro!");
     }
     if (success == true) {
-      window.location.href = "http://localhost:3000/distribuicoes";
+      sessionStorage.ID_USER = result.data.idUser;
+      sessionStorage.NAME = result.data.name;
+      sessionStorage.EMAIL = result.data.email;
+      sessionStorage.USERNAME = result.data.username;
+      sessionStorage.IMAGE_CODE = result.data.imageCode;
+      sessionStorage.LEVEL = result.data.fkLevel;
+      window.alert("")
+      navigate("/perfil");
     } else {
       window.alert("Preencha os campos corretamente!");
     }
@@ -110,6 +126,7 @@ function ModalCadastro() {
               <Input
                 onKeyUp={isFilled}
                 onChange={(name) => setName(name.target.value)}
+                onKeyDown={(event) => keyHandler(event)}
                 style={{
                   width: "90%",
                   height: 25,
@@ -134,6 +151,7 @@ function ModalCadastro() {
               <Input
                 onKeyUp={isFilled}
                 onChange={(username) => setUsername(username.target.value)}
+                onKeyDown={(event) => keyHandler(event)}
                 style={{
                   width: "90%",
                   height: 25,
@@ -159,6 +177,7 @@ function ModalCadastro() {
               <Input
                 onKeyUp={isFilled}
                 onChange={(email) => setEmail(email.target.value)}
+                onKeyDown={(event) => keyHandler(event)}
                 style={{
                   width: "170%",
                   height: 25,
@@ -192,6 +211,7 @@ function ModalCadastro() {
               <Input
                 onKeyUp={isFilled}
                 onChange={(password) => setPassword(password.target.value)}
+                onKeyDown={(event) => keyHandler(event)}
                 style={{
                   width: "90%",
                   height: 25,
@@ -218,6 +238,7 @@ function ModalCadastro() {
                 onChange={(password) =>
                   setConfirmPassword(password.target.value)
                 }
+                onKeyDown={(event) => keyHandler(event)}
                 style={{
                   width: "90%",
                   height: 25,

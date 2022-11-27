@@ -81,7 +81,7 @@ export function Conteudo() {
       </div>
       <div className="header-comentarios">
         <h2>Comentar:</h2>
-        <img src={discord} alt="" />
+        <a href="#####"><img src={discord} alt="" /></a>
       </div>
       <div className="ipt_comentar">
         <input
@@ -89,7 +89,7 @@ export function Conteudo() {
           className="mr-2"
           placeholder=" Escreva seu comentario aqui..."
         />
-        <button>Enviar</button>
+        <button className="btn-enviar">Enviar</button>
       </div>
       <div className="header-comentarios">
         <div className="comentarios">

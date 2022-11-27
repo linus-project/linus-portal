@@ -128,10 +128,11 @@ html {
     height: 30px;
     border-radius: 6px;
     border: none;
+    margin-bottom: 5px;
 }
 
 .ipt_comentar button {
-    width: 8%;
+    width: 80px;
     height: 31px;
     border-radius: 6px;
     border: none;

@@ -24,7 +24,7 @@ export function Home() {
         <p>Democratizar, facilitar e transformar</p>
       </div>
 
-      <div className="nuvem-palavras">
+      <div className="nuvem-palavras" id="secao-sobre-nos">
         <img src={"../assets/Educação.gif"} className="img-fluid" />
       </div>
 

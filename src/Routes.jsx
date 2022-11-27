@@ -21,7 +21,7 @@ export function AppRoutes(props){
                 <Route path="/conteudo" element={<Conteudo />} />
                 <Route path="/noticias" element={<Noticias />} />
                 <Route path="/conteudos-favoritados" element={<ConteudosFavoritados />} />
-                <Route path="/hotsite" element={<HotSite/>}/>
+                <Route path="/hotsite" element={<HotSite />}/>
             </Routes>
         </Router>
     )

@@ -161,7 +161,7 @@ function LoggedNavBar(props) {
                       </NavDropdown.Item>
                       <NavDropdown.Divider />
                       <NavDropdown.Item
-                        onClick={() => navigate("/noticias")}
+                        onClick={() => navigate("/hotsite")}
                       >
                         Mais Serviços
                       </NavDropdown.Item>

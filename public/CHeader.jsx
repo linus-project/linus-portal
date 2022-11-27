@@ -24,14 +24,13 @@ function Header(props) {
       </>
     );
     closeModalCadastro();
+  }
+
+  function showModalCadastro() {
     document.getElementsByClassName("banner")[0].style.setProperty(
       "background",
       "url('../assets/BannerBorrado.png') no-repeat center center/cover"
       );
-    document.getElementsByClassName("slogan")[0].style.setProperty("display","none");
-  }
-
-  function showModalCadastro() {
     setModalCadastro(
       <>
         <ModalCadastro />
@@ -48,30 +47,13 @@ function Header(props) {
       </>
     );
     closeModalLogin();
-    document.getElementsByClassName("banner")[0].style.setProperty(
-      "background",
-      "url('../assets/BannerBorrado.png') no-repeat center center/cover"
-      );
-    document.getElementsByClassName("slogan")[0].style.setProperty("display","none");
   }
 
   function closeModalLogin() {
-    document.getElementsByClassName("banner")[0].style.setProperty(
-      "background",
-      "url('../assets/Banner.png') no-repeat center center/cover"
-      );
-      
-    document.getElementsByClassName("slogan")[0].style.setProperty("display","block");
     setModalLogin();
   }
 
   function closeModalCadastro() {
-    document.getElementsByClassName("banner")[0].style.setProperty(
-      "background",
-      "url('../assets/Banner.png') no-repeat center center/cover"
-      );
-      
-    document.getElementsByClassName("slogan")[0].style.setProperty("display","block");
     setModalCadastro();
   }
 

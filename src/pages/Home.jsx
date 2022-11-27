@@ -29,10 +29,11 @@ export function Home() {
 
   return (
     <>
+      
       <Header/>
 
-      <div id="banner">
-        <p>Democratizar, facilitar e transformar</p>
+      <div className='banner' id="banner">
+        <p className='slogan'>Democratizar, facilitar e transformar</p>
       </div>
 
       <div className="nuvem-palavras">

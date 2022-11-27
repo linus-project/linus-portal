@@ -8,7 +8,6 @@ import { useState, useEffect } from "react";
 import api from "../api";
 
 export function ConteudosFavoritados() {
-  
   const [starterContentList, setStarterContentList] = useState([]);
   const [intermediaryContentList, setIntermediaryContentList] = useState([]);
   const [advancedContentList, setAdvancedContentList] = useState([]);
@@ -24,14 +23,14 @@ export function ConteudosFavoritados() {
 
   async function getIntermediaryContent() {
     var result = await api.get(
-      `/content/favorite?idUser=${sessionStorage.ID_USER}&level=${level.INTERMEDIARY}`
+      `/content/favorite/level?idUser=${sessionStorage.ID_USER}&level=${level.INTERMEDIARY}`
     );
     setIntermediaryContentList(result.data);
   }
 
   async function getAdvancedContent() {
     var result = await api.get(
-      `/content/favorite?idUser=${sessionStorage.ID_USER}&level=${level.ADVANCED}`
+      `/content/favorite/level?idUser=${sessionStorage.ID_USER}&level=${level.ADVANCED}`
     );
     setAdvancedContentList(result.data);
   }
@@ -94,6 +93,8 @@ export function ConteudosFavoritados() {
               <>
                 <div className="col pb-4 ">
                   <CConteudo
+                    key={content.idContent}
+                    idContent={content.idContent}
                     image="../assets/intermediario.png"
                     titulo={content.contentTitle}
                     texto={content.content}
@@ -111,6 +112,8 @@ export function ConteudosFavoritados() {
           <>
             <div className="col pb-4 ">
               <CConteudo
+                key={content.idContent}
+                idContent={content.idContent}
                 image="../assets/avancado.png"
                 titulo={content.contentTitle}
                 texto={content.content}

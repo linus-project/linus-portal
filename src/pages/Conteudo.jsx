@@ -13,11 +13,8 @@ import descurtir from "../assets/descurtir.svg";
 import discord from "../assets/discord-icon.svg";
 import { useState, useEffect } from "react";
 import api from "../api";
-import { useNavigate } from "react-router-dom";
 
 export function Conteudo() {
-
-  const navigate = useNavigate();
 
   var idContent = sessionStorage.ID_CONTENT;
   var idUser = sessionStorage.ID_USER;

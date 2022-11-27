@@ -7,6 +7,7 @@ import { Perfil } from "./pages/Perfil";
 import { Conteudo } from "./pages/Conteudo";
 import { Noticias } from "./pages/Noticias";
 import { ConteudosFavoritados } from "./pages/ConteudosFavoritados";
+import { HotSite } from "./pages/HotSite";
 
 export function AppRoutes(props){
     return (
@@ -20,6 +21,7 @@ export function AppRoutes(props){
                 <Route path="/conteudo" element={<Conteudo />} />
                 <Route path="/noticias" element={<Noticias />} />
                 <Route path="/conteudos-favoritados" element={<ConteudosFavoritados />} />
+                <Route path="/hotsite" element={<HotSite/>}/>
             </Routes>
         </Router>
     )

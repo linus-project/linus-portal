@@ -51,6 +51,11 @@
     .nuvem-palavras {
         background: url('../assets/educacao-mobile.gif') no-repeat center center/cover;
         background-size: 100%;
+        height: 720px;
+    }
+
+    .nuvem-palavras img {
+        display: none;
     }
 
     .missao {
@@ -89,6 +94,14 @@
         transition: 1.5s;
     }
 
+    .distribuicoes {
+        height: 920px;
+    }
+
+    .distribuicoes h2 {
+        font-size: 42px;
+    }
+
     .distros-img {
         display: flex;
         flex-flow: row wrap;
@@ -116,5 +129,17 @@
         margin-top: 50px;
         margin-left: 0px;
 
+    }
+
+    .navbar-logged input {
+        display: none;
+    }
+
+    .row-cols-sm-1>* {
+        width: 0%;
+    }
+
+    .img-parte-1-3,.img-parte-2-4 {
+        display: none;
     }
 }

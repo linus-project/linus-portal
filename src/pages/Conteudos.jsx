@@ -7,7 +7,11 @@ import LoggedNavBar from "../components/CLoggedNavBar";
 import { useState, useEffect } from "react";
 import api from "../api";
 
-export function Conteudos(props) {
+export function Conteudos() {
+  
+  const idDistro = sessionStorage.ID_DISTRO;
+
+  sessionStorage.removeItem("ID_DISTRO");
 
   const [starterContentList, setStarterContentList] = useState([]);
   const [intermediaryContentList, setIntermediaryContentList] = useState([]);
@@ -16,9 +20,11 @@ export function Conteudos(props) {
   const level = { STARTER: 1, INTERMEDIARY: 2, ADVANCED: 3 };
 
   async function getStarterContent() {
-    var result;
-    if(props.fkDistro === undefined) {
-      result = await api.get(`/content/level/${level.STARTER}`);
+    var result = null;
+    if (idDistro != undefined) {
+      result = await api.get(
+        `/content/distro/${idDistro}/level/${level.STARTER}`
+      );
     } else {
       result = await api.get(`/content/level/${level.STARTER}`);
     }
@@ -26,13 +32,35 @@ export function Conteudos(props) {
   }
 
   async function getIntermediaryContent() {
-    var result = await api.get(`/content/level/${level.INTERMEDIARY}`);
+    var result = null;
+    if (idDistro != undefined) {
+      result = await api.get(
+        `/content/distro/${idDistro}/level/${level.INTERMEDIARY}`
+      );
+    } else {
+      result = await api.get(`/content/level/${level.INTERMEDIARY}`);
+    }
     setIntermediaryContentList(result.data);
   }
 
   async function getAdvancedContent() {
-    var result = await api.get(`/content/level/${level.ADVANCED}`);
-    setAdvancedContentList(result.data);
+    var result = null;
+    var success = false;
+    try {
+      if (idDistro != undefined) {
+        result = await api.get(
+          `/content/distro/${idDistro}/level/${level.ADVANCED}`
+        );
+      } else {
+        result = await api.get(`/content/level/${level.ADVANCED}`);
+      }
+      success = true;
+    } catch (error) {
+      console.log("[ERROR] - getAdvancedContend: ", error)
+    }
+    if(success == true){
+      setAdvancedContentList(result.data);      
+    }
   }
 
   useEffect(
@@ -48,9 +76,9 @@ export function Conteudos(props) {
 
   return (
     <>
-      <LoggedNavBar  title={"Conteúdos"} style={{zindex:1}}/>
+      <LoggedNavBar title={"Conteúdos"} style={{ zindex: 1 }} />
 
-      <CTextoGrande text="Conteúdo" class="pl-5 fw-bold pt-5" />
+      <CTextoGrande text="Conteúdos" class="pl-5 fw-bold pt-5" />
 
       <CTextoPequeno
         text="Acompanhe abaixo o conteúdo sugerido, de acordo com o nivel de dificuldade"
@@ -68,14 +96,14 @@ export function Conteudos(props) {
           {starterContentList.map((content) => {
             return (
               <>
-                <div className="col pb-4 ">
-                  <CConteudo
-                    key={content.idContent}
-                    idContent={content.idContent}
-                    image="../assets/basico.png"
-                    titulo={content.contentTitle}
-                    texto={content.content}
-                  />
+                <div className="col pb-3 ">
+                    <CConteudo
+                      key={content.idContent}
+                      idContent={content.idContent}
+                      image="../assets/basico.png"
+                      titulo={content.contentTitle}
+                      texto={content.content?.substring(0, 20) + "..."}
+                    />
                 </div>
               </>
             );
@@ -96,9 +124,11 @@ export function Conteudos(props) {
               <>
                 <div className="col pb-4 ">
                   <CConteudo
+                    key={content.idContent}
+                    idContent={content.idContent}
                     image="../assets/intermediario.png"
                     titulo={content.contentTitle}
-                    texto={content.content}
+                    texto={content.content?.substring(0, 20) + "..."}
                   />
                 </div>
               </>
@@ -116,9 +146,11 @@ export function Conteudos(props) {
               <>
                 <div className="col pb-4 ">
                   <CConteudo
+                    key={content.idContent}
+                    idContent={content.idContent}
                     image="../assets/avancado.png"
                     titulo={content.contentTitle}
-                    texto={content.content}
+                    texto={content.content?.substring(0, 20) + "..."}
                   />
                 </div>
               </>

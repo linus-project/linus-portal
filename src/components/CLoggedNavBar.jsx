@@ -17,7 +17,6 @@ import { useNavigate } from "react-router-dom";
 import api from "../api";
 
 function LoggedNavBar(props) {
-  
   const [searchListModal, setSearchListModal] = useState("");
   const [searchList, setSearchList] = useState("");
 
@@ -26,6 +25,15 @@ function LoggedNavBar(props) {
   if (sessionStorage.USERNAME === undefined) {
     navigate("/");
     return window.alert("É necessário se autenticar para acessar esta página");
+  }
+
+  function redirectToContent(idContent) {
+    if(sessionStorage.ID_CONTENT != undefined) {
+      sessionStorage.ID_CONTENT = idContent;
+      return navigate(0);
+    }
+    sessionStorage.ID_CONTENT = idContent;
+    return navigate(`/conteudo`);
   }
 
   async function getContent(contentTitle) {
@@ -44,7 +52,7 @@ function LoggedNavBar(props) {
         <>
           <Card
             className={"position-absolute"}
-            style={{ marginLeft: "28vh", width: "60%" }}
+            style={{ marginLeft: "31vh", width: "60%" }}
           >
             <CardBody
               style={{ alignItems: "center", justifyContent: "center" }}
@@ -52,7 +60,11 @@ function LoggedNavBar(props) {
               {searchList.slice(0, 5).map((content) => {
                 return (
                   <>
-                    <CardText style={{ cursor: "pointer" }}>
+                    <CardText
+                      key={content.idContent}
+                      onClick={() => redirectToContent(content.idContent)}
+                      style={{ cursor: "pointer" }}
+                    >
                       {content.contentTitle}
                     </CardText>
                   </>
@@ -72,7 +84,7 @@ function LoggedNavBar(props) {
 
   function loggout() {
     sessionStorage.clear();
-    window.location.href = "http://localhost:3000";
+    navigate("/");
   }
 
   return (
@@ -107,31 +119,45 @@ function LoggedNavBar(props) {
                 aria-controls="responsive-navbar-nav"
                 className="my-3"
               />
-              <Navbar.Collapse id="responsive-navbar-nav">
-                <Nav className="me-auto">
-                  <Nav.Item>
+              <Navbar.Collapse id="responsive-navbar-nav" >
+                <Nav className="me-auto" >
+                  <Nav.Item >
                     <NavDropdown
                       title={props.title}
                       id="collapsible-nav-dropdown"
                       className="navbar-dropdown mt-1 mr-3"
                     >
-                      <NavDropdown.Item href=".">Seu Perfil</NavDropdown.Item>
+                      <NavDropdown.Item onClick={() => navigate("/perfil")}>
+                        Seu Perfil
+                      </NavDropdown.Item>
                       <NavDropdown.Divider />
-                      <NavDropdown.Item href="./Distribuicoes">
+                      <NavDropdown.Item 
+                        onClick={() => navigate("/distribuicoes")}
+                      >
                         Distribuições
                       </NavDropdown.Item>
                       <NavDropdown.Divider />
-                      <NavDropdown.Item href="./Conteudos">
+                      <NavDropdown.Item onClick={() => navigate("/conteudos")}>
                         Conteúdos
                       </NavDropdown.Item>
                       <NavDropdown.Divider />
-                      <NavDropdown.Item href="./visto-por-ultimo">
-                        Vistos por ultimo
+                      <NavDropdown.Item
+                        onClick={() => navigate("/visto-por-ultimo")}
+                      >
+                        Vistos por Último
                       </NavDropdown.Item>
 
                       <NavDropdown.Divider />
-                      <NavDropdown.Item href="#acao1.3">
-                        Favoritos
+                      <NavDropdown.Item
+                        onClick={() => navigate("/conteudos-favoritados")}
+                      >
+                        Favoritados
+                      </NavDropdown.Item>
+                      <NavDropdown.Divider />
+                      <NavDropdown.Item
+                        onClick={() => navigate("/noticias")}
+                      >
+                        Notícias
                       </NavDropdown.Item>
                     </NavDropdown>
                   </Nav.Item>

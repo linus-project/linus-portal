@@ -6,7 +6,8 @@ export function CConteudo(props) {
   const navigate = useNavigate();
 
   function redirectToContent() {
-    return navigate(`/content/${props.idContent}`);
+    sessionStorage.ID_CONTENT = props.idContent;
+    return navigate(`/conteudo`);
   }
 
   return (

@@ -10,7 +10,6 @@ import logoFacebook from "../assets/facebook1.png";
 import logoGoogle from "../assets/google.png";
 import { useNavigate } from "react-router-dom";
 
-
 function ModalLogin() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -18,7 +17,6 @@ function ModalLogin() {
   const navigate = useNavigate();
 
   const { signInGoogle, signed } = useContext(AuthGoogleContext);
- 
 
   async function handleLoginFromGoogle() {
     await signInGoogle();
@@ -43,7 +41,9 @@ function ModalLogin() {
       sessionStorage.USERNAME = result.data.username;
       sessionStorage.IMAGE_CODE = result.data.imageCode;
       sessionStorage.LEVEL = result.data.fkLevel;
-      navigate("/distribuicoes")
+      sessionStorage.PHONE_NUMBER = result.data.phoneNumber;
+      sessionStorage.BORN_DATE = result.data.bornDate;
+      navigate("/distribuicoes");
     } else {
       window.alert("Usuário ou senha senha incorretos!");
     }
@@ -63,7 +63,7 @@ function ModalLogin() {
     }
   }
 
-  if(!signed){
+  if (!signed) {
     return (
       <>
         <div
@@ -88,7 +88,7 @@ function ModalLogin() {
           }}
         >
           <h1 style={{ marginTop: 18 }}>Login</h1>
-  
+
           <Form
             style={{
               width: "100%",
@@ -113,7 +113,7 @@ function ModalLogin() {
                   borderBottom: "solid 3px #cdcdcd",
                   borderColor: "#5ce1e6",
                   backgroundColor: "transparent",
-                  boxShadow: "none"
+                  boxShadow: "none",
                 }}
                 id="exampleEmail"
                 name="email"
@@ -122,7 +122,7 @@ function ModalLogin() {
               />
               <Label for="exampleEmail"></Label>
             </FormGroup>
-  
+
             <FormGroup floating>
               SENHA
               <Input
@@ -138,7 +138,7 @@ function ModalLogin() {
                   borderBottom: "solid 3px #cdcdcd",
                   borderColor: "#5ce1e6",
                   backgroundColor: "transparent",
-                    boxShadow: "none"
+                  boxShadow: "none",
                 }}
                 id="examplePassword"
                 name="password"
@@ -148,7 +148,7 @@ function ModalLogin() {
               />
               <Label for="examplePassword"></Label>
             </FormGroup>
-  
+
             <Button
               disabled={!filled}
               onClick={userLogin}
@@ -161,9 +161,9 @@ function ModalLogin() {
             >
               Entrar
             </Button>
-  
+
             <div style={{ marginTop: 10 }}>Entrar com:</div>
-  
+
             <div
               style={{
                 display: "flex",
@@ -178,7 +178,7 @@ function ModalLogin() {
                   src={logoGit}
                 />
               </IconButton>
-  
+
               <IconButton style={{ height: 40, marginTop: 20 }}>
                 <img
                   style={{ fontSize: "0", height: 40 }}
@@ -186,7 +186,10 @@ function ModalLogin() {
                   src={logoFacebook}
                 />
               </IconButton>
-              <IconButton onClick={handleLoginFromGoogle} style={{ height: 40, marginTop: 20 }}>
+              <IconButton
+                onClick={handleLoginFromGoogle}
+                style={{ height: 40, marginTop: 20 }}
+              >
                 <img
                   style={{ fontSize: "0", height: 40 }}
                   alt="gogle"
@@ -194,13 +197,13 @@ function ModalLogin() {
                 />
               </IconButton>
             </div>
-  
+
             <div style={{ marginTop: 10 }}>Cadastre-se</div>
           </Form>
         </div>
       </>
     );
-  }else{
+  } else {
     return <Navigate to="/visto-por-ultimo" />;
   }
 }

@@ -406,3 +406,11 @@ body {
     color:#5CE1E6;
     margin-bottom:0;
   }
+
+  .edit-image{
+    width: 22%;
+  }
+
+  .edit-image:hover{
+    cursor: pointer;
+  }

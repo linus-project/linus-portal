@@ -125,8 +125,7 @@ export function Perfil() {
     } else {
       document.getElementById("telefone").value = "ex: (11) 99999-9999";
     }
-
-    if (sessionStorage.BORN_DATE == null) {
+    if (sessionStorage.BORN_DATE != null) {
       document.getElementById("nascimento").value = sessionStorage.BORN_DATE;
     } else {
       document.getElementById("nascimento").value = undefined;

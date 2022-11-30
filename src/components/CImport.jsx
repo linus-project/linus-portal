@@ -1,5 +1,6 @@
 import Swal from 'sweetalert2';
 import Button from "@mui/material/Button/Button";
+import api from '../api';
 
 
 
@@ -10,21 +11,15 @@ export function Importacao() {
         title: 'Selecione o Arquivo',
         input: 'file',
         inputAttributes: {
-          'accept': 'image/*',
+          'accept': 'text/*',
           'aria-label': 'Upload your profile picture'
         }
       })
       
       if (file) {
-        const reader = new FileReader()
-        reader.onload = (e) => {
-          Swal.fire({
-            title: 'Your uploaded picture',
-            imageUrl: e.target.result,
-            imageAlt: 'The uploaded picture'
-          })
-        }
-        reader.readAsDataURL(file)
+        var formData = new FormData();
+        formData.append("file", file);
+        api.post("/news/import", formData)
       }
     }
     

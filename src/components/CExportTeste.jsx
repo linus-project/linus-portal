@@ -32,11 +32,11 @@ export function ExportTeste() {
   }
 
   async function exportFile(size) {
-    var result = await api.get(`/content/export/csv?fileTitle=test&contentTitle=ubuntu&listSize=${size}`);
+    var result = await api.get(`/news/export?listSize=${size}&fileTitle=como&fkDistro=3`);
     const element = document.createElement("a");
-    const file = new Blob([result.data], {type: 'application/csv'});
+    const file = new Blob([result.data], {type: 'application/txt'});
     element.href = URL.createObjectURL(file);
-    element.download = "linus-export.csv";
+    element.download = "linus-export.txt";
     element.click();
   }
 

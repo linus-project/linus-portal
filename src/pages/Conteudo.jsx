@@ -158,7 +158,7 @@ export function Conteudo() {
       </div>
       <div className="header-comentarios">
         <h2>Comentar:</h2>
-        <a href="https://discord.gg/J3kMDRYXbA">
+        <a href="https://discord.gg/Sw9xrV5z">
           <img src={discord} alt="" />
         </a>
       </div>

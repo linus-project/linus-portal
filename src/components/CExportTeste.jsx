@@ -22,6 +22,10 @@ export function ExportTeste() {
       input: "range",
       inputValue: 0,
       inputLabel: "Quantidade de Conteúdo",
+      showCloseButton: true,
+      background:"#353333",
+      color:"#fff",
+      confirmButtonColor: "#52bcbf",
       inputAttributes: {
         min: 1,
         max: 20,

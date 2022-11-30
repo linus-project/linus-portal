@@ -10,6 +10,10 @@ export function Importacao() {
       const { value: file } = await Swal.fire({
         title: 'Selecione o Arquivo',
         input: 'file',
+        showCloseButton: true,
+        background:"#353333",
+        color:"#fff",
+        confirmButtonColor: "#52bcbf",
         inputAttributes: {
           'accept': 'text/*',
           'aria-label': 'Upload your profile picture'

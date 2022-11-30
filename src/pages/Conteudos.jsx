@@ -12,6 +12,7 @@ export function Conteudos() {
   const idDistro = sessionStorage.ID_DISTRO;
 
   sessionStorage.removeItem("ID_DISTRO");
+  sessionStorage.removeItem("ID_CONTENT");
 
   const [starterContentList, setStarterContentList] = useState([]);
   const [intermediaryContentList, setIntermediaryContentList] = useState([]);

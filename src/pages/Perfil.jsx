@@ -104,7 +104,6 @@ export function Perfil() {
         // window.alert(error.response.data.message)
         Swal.fire({
           showCloseButton: true,
-          showCancelButton: true,
           background:"#353333",
           color:"#fff",
           iconColor:"#C42A2A",

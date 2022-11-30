@@ -44,6 +44,9 @@ function ModalLogin() {
       sessionStorage.LEVEL = result.data.fkLevel;
       sessionStorage.PHONE_NUMBER = result.data.phoneNumber;
       sessionStorage.BORN_DATE = result.data.bornDate;
+      if (result.data.adminKey != null) {
+        sessionStorage.IS_ADMIN = true;
+      }
       navigate("/distribuicoes");
     } else {
       // window.alert("Usuário ou senha senha incorretos!");

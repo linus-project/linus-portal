@@ -17,9 +17,38 @@ export function Importacao() {
       })
       
       if (file) {
+        var success = false;
         var formData = new FormData();
         formData.append("file", file);
-        api.post("/news/import", formData)
+        try {
+          await api.post("/news/import", formData)
+          success = true;
+        } catch (error) {
+          console.log("[ERROR] - importContent", error)
+        }
+        if (success == true) {
+          Swal.fire({
+            showCloseButton: true,
+            background:"#353333",
+            howCancelButton: true,
+            color:"#fff",
+            confirmButtonColor: "#52bcbf",
+            title:'Deu tudo certo!',
+            text:'O arquivo foi importado com sucesso!',
+            icon:'success'
+          })
+        } else {
+          Swal.fire({
+            showCloseButton: true,
+            background:"#353333",
+            color:"#fff",
+            iconColor:"#C42A2A",
+            icon: 'error',
+            title: 'Erro ao importar!',
+            text: 'Por favor, tente novamente.',
+            confirmButtonColor: "#52bcbf"
+          })
+        }
       }
     }
     

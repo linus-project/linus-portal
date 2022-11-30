@@ -1,4 +1,4 @@
-import { React, useState, useRef, useEffect } from "react";
+import { React, useState, useEffect } from "react";
 import { Card, CardBody, CardText, CardTitle } from "reactstrap";
 import {
   Button,
@@ -22,13 +22,28 @@ function LoggedNavBar(props) {
 
   const navigate = useNavigate();
 
-  if (sessionStorage.USERNAME === undefined) {
-    navigate("/");
-    return window.alert("É necessário se autenticar para acessar esta página");
+  function isLogged() {
+    if (sessionStorage.USERNAME === undefined) {
+      navigate("/");
+      return window.alert("É necessário se autenticar para acessar esta página");
+    }
+  }
+
+  function moreServices() {
+    if (sessionStorage.IS_ADMIN != undefined) {
+      return (
+        <>
+          <NavDropdown.Divider />
+          <NavDropdown.Item onClick={() => navigate("/hotsite")}>
+            Mais Serviços
+          </NavDropdown.Item>
+        </>
+      );
+    }
   }
 
   function redirectToContent(idContent) {
-    if(sessionStorage.ID_CONTENT != undefined) {
+    if (sessionStorage.ID_CONTENT != undefined) {
       sessionStorage.ID_CONTENT = idContent;
       return navigate(0);
     }
@@ -87,6 +102,11 @@ function LoggedNavBar(props) {
     navigate("/");
   }
 
+  useEffect(() => {
+    moreServices();
+    isLogged();
+  }, []);
+
   return (
     <>
       <Navbar className="navbar-logged" collapseOnSelect expand="lg">
@@ -119,9 +139,9 @@ function LoggedNavBar(props) {
                 aria-controls="responsive-navbar-nav"
                 className="my-3"
               />
-              <Navbar.Collapse id="responsive-navbar-nav" >
-                <Nav className="me-auto" >
-                  <Nav.Item >
+              <Navbar.Collapse id="responsive-navbar-nav">
+                <Nav className="me-auto">
+                  <Nav.Item>
                     <NavDropdown
                       title={props.title}
                       id="collapsible-nav-dropdown"
@@ -131,7 +151,7 @@ function LoggedNavBar(props) {
                         Seu Perfil
                       </NavDropdown.Item>
                       <NavDropdown.Divider />
-                      <NavDropdown.Item 
+                      <NavDropdown.Item
                         onClick={() => navigate("/distribuicoes")}
                       >
                         Distribuições
@@ -154,17 +174,10 @@ function LoggedNavBar(props) {
                         Favoritados
                       </NavDropdown.Item>
                       <NavDropdown.Divider />
-                      <NavDropdown.Item
-                        onClick={() => navigate("/noticias")}
-                      >
+                      <NavDropdown.Item onClick={() => navigate("/noticias")}>
                         Notícias
                       </NavDropdown.Item>
-                      <NavDropdown.Divider />
-                      <NavDropdown.Item
-                        onClick={() => navigate("/hotsite")}
-                      >
-                        Mais Serviços
-                      </NavDropdown.Item>
+                      {moreServices()}
                     </NavDropdown>
                   </Nav.Item>
                   <Nav.Item>

@@ -9,7 +9,6 @@ import api from "../api";
 import { useNavigate } from "react-router-dom";
 
 export function Distribuicao() {
-
   sessionStorage.removeItem("ID_DISTRO");
 
   const [starterDistroList, setStarterDistroList] = useState([]);
@@ -64,11 +63,11 @@ export function Distribuicao() {
         color="#52BCBF"
       />
       <div className="container text-left">
-        <div className="row">
+        <div className="row align-items-center">
           {starterDistroList.map((distro) => {
             return (
               <>
-                <div className="col">
+                <div className="col text-center">
                   <CDistribuicao
                     key={distro.idDistro}
                     idDistro={distro.idDistro}
@@ -88,11 +87,11 @@ export function Distribuicao() {
         color="#52BCBF"
       />
       <div className="container text-left">
-        <div className="row">
+        <div className="row align-items-center">
           {intermediaryDistroList.map((distro) => {
             return (
               <>
-                <div className="col">
+                <div className="col text-center">
                   <CDistribuicao
                     key={distro.idDistro}
                     idDistro={distro.idDistro}
@@ -108,11 +107,11 @@ export function Distribuicao() {
 
       <CTextoGrande text="Avançado" class="pl-5 fw-bold pt-5" color="#52BCBF" />
       <div className="container text-left">
-        <div className="row">
+        <div className="row align-items-center">
           {advancedDistroList.map((distro) => {
             return (
               <>
-                <div className="col">
+                <div className="col text-center">
                   <CDistribuicao
                     key={distro.idDistro}
                     idDistro={distro.idDistro}

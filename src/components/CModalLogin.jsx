@@ -22,6 +22,7 @@ function ModalLogin() {
   async function handleLoginFromGoogle() {
     await signInGoogle();
   }
+  
   async function userLogin(login) {
     var success = false;
     var result = null;

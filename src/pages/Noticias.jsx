@@ -39,7 +39,7 @@ export function Noticias() {
         class="pl-5 fw-lighter mb-20"
       />
       <div className="container">
-        {newsList.map((news) => {
+        {newsList.reverse().map((news) => {
           return (
             <>
               <CNoticia1

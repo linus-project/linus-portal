@@ -12,34 +12,10 @@ import { useEffect } from "react";
 export function HotSite() {
   const navigate = useNavigate();
 
-  function isLogged() {
-    if (sessionStorage.IS_ADMIN === undefined) {
-      navigate(-1);
-      return window.alert(
-        "Você não tem permissão para acessar esta página"
-      );
-    }
-  }
-
-  useEffect(() => {
-    isLogged();
-  }, []);
-
-  return (
-    <>
-      <LoggedNavBar title={"Mais Serviços"} />
-      <div>
-        <div>
-          <CTextoGrande
-            text="Serviços especiais"
-            class="fs-1 pl-5 fw-bold pt-5"
-          />
-          <CTextoPequeno
-            text="Aqui, você consegue utilizar ferramentas exclusivas que visam facilitar sua vida, confira as funcionalidades:"
-            class="pl-5 fw-lighter mb-20"
-          />
-        </div>
-        <div>
+  function isAdmin() {
+    if (sessionStorage.IS_ADMIN !== undefined) {
+      return (
+        <>
           <CTextoGrande
             text="Importar Conteúdo"
             class="fs-1 pl-5 fw-bold pt-5"
@@ -60,6 +36,31 @@ export function HotSite() {
             />
             <Importacao />
           </div>
+        </>
+      );
+    }
+  }
+
+  useEffect(() => {
+    isAdmin();
+  }, []);
+
+  return (
+    <>
+      <LoggedNavBar title={"Mais Serviços"} />
+      <div>
+        <div>
+          <CTextoGrande
+            text="Serviços especiais"
+            class="fs-1 pl-5 fw-bold pt-5"
+          />
+          <CTextoPequeno
+            text="Aqui, você consegue utilizar ferramentas exclusivas que visam facilitar sua vida, confira as funcionalidades:"
+            class="pl-5 fw-lighter mb-20"
+          />
+        </div>
+        <div>
+          {isAdmin()}
 
           <CTextoGrande
             text="Exportar Conteúdo"

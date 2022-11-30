@@ -25,19 +25,8 @@ function LoggedNavBar(props) {
   function isLogged() {
     if (sessionStorage.USERNAME === undefined) {
       navigate("/");
-      return window.alert("É necessário se autenticar para acessar esta página");
-    }
-  }
-
-  function moreServices() {
-    if (sessionStorage.IS_ADMIN != undefined) {
-      return (
-        <>
-          <NavDropdown.Divider />
-          <NavDropdown.Item onClick={() => navigate("/hotsite")}>
-            Mais Serviços
-          </NavDropdown.Item>
-        </>
+      return window.alert(
+        "É necessário se autenticar para acessar esta página"
       );
     }
   }
@@ -103,7 +92,6 @@ function LoggedNavBar(props) {
   }
 
   useEffect(() => {
-    moreServices();
     isLogged();
   }, []);
 
@@ -177,7 +165,10 @@ function LoggedNavBar(props) {
                       <NavDropdown.Item onClick={() => navigate("/noticias")}>
                         Notícias
                       </NavDropdown.Item>
-                      {moreServices()}
+                      <NavDropdown.Divider />
+                      <NavDropdown.Item onClick={() => navigate("/hotsite")}>
+                        Mais Serviços
+                      </NavDropdown.Item>
                     </NavDropdown>
                   </Nav.Item>
                   <Nav.Item>

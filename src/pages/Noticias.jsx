@@ -34,7 +34,7 @@ export function Noticias() {
       <LoggedNavBar title={"Notícias"} />
       <CTextoGrande text="Notícias" class="pl-5 fw-bold pt-5" />
       <CTextoPequeno
-        text="Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fu."
+        text="Acompanhe as últimas novidades no mundo Linux."
         class="pl-5 fw-lighter mb-20"
       />
       <div className="container">

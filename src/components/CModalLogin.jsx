@@ -3,11 +3,11 @@ import { AuthGoogleContext } from "../contexts/authGoogle";
 import { Navigate } from "react-router-dom";
 import { useState, useContext } from "react";
 // import foto from '../assets/login.png';
-import logoGit from "../assets/github.svg";
+// import logoGit from "../assets/github.svg";
 import { IconButton } from "@mui/material";
 import api from "../api";
-import logoFacebook from "../assets/facebook1.png";
-import logoGoogle from "../assets/google.png";
+// import logoFacebook from "../assets/facebook1.png";
+import logoGoogle from "../assets/continuar-google.svg";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
@@ -174,7 +174,7 @@ function ModalLogin() {
               Entrar
             </Button>
 
-            <div style={{ marginTop: 10 }}>Entrar com:</div>
+            {/* <div style={{ marginTop: 10 }}>Entrar com:</div> */}
 
             <div
               style={{
@@ -183,21 +183,21 @@ function ModalLogin() {
                 alignItems: "center",
               }}
             >
-              <IconButton style={{ height: 40, marginTop: 20 }}>
+              {/* <IconButton style={{ height: 40, marginTop: 20 }}>
                 <img
                   style={{ fontSize: "0", height: 40 }}
                   alt="github"
                   src={logoGit}
                 />
-              </IconButton>
+              </IconButton> */}
 
-              <IconButton style={{ height: 40, marginTop: 20 }}>
+              {/* <IconButton style={{ height: 40, marginTop: 20 }}>
                 <img
                   style={{ fontSize: "0", height: 40 }}
                   alt="logoFacebook"
                   src={logoFacebook}
                 />
-              </IconButton>
+              </IconButton> */}
               <IconButton
                 onClick={handleLoginFromGoogle}
                 style={{ height: 40, marginTop: 20 }}
@@ -210,7 +210,7 @@ function ModalLogin() {
               </IconButton>
             </div>
 
-            <div style={{ marginTop: 10 }}>Cadastre-se</div>
+            {/* <div style={{ marginTop: 10 }}>Cadastre-se</div> */}
           </Form>
         </div>
       </>

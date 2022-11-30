@@ -5,10 +5,12 @@ import { IconButton } from "@mui/material";
 import api from "../api";
 import { useState } from "react";
 import logoFacebook from "../assets/facebook1.png";
-import logoGoogle from "../assets/google.png";
+import logoGoogle from "../assets/continuar-google.svg";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import 'animate.css';
+
+
 
 function ModalCadastro() {
   const navigate = useNavigate();
@@ -50,7 +52,7 @@ function ModalCadastro() {
       // window.alert("Cadastrado com sucesso!");
       Swal.fire({
         showCloseButton: true,
-        showCancelButton: true,
+        // showCancelButton: true,
         background:"#353333",
         color:"#fff",
         confirmButtonColor: "#52bcbf",
@@ -64,7 +66,7 @@ function ModalCadastro() {
       // window.alert("Erro ao realizar o cadastro!");
       Swal.fire({
         showCloseButton: true,
-        showCancelButton: true,
+        // showCancelButton: false,
         background:"#353333",
         color:"#fff",
         iconColor:"#C42A2A",
@@ -318,7 +320,7 @@ function ModalCadastro() {
             Cadastrar
           </Button>
 
-          <div style={{ marginTop: 10 }}>Cadastrar com:</div>
+          {/* <div style={{ marginTop: 10 }}>Cadastrar com:</div> */}
 
           <div
             style={{
@@ -327,7 +329,7 @@ function ModalCadastro() {
               alignItems: "center",
             }}
           >
-            <IconButton style={{ height: 40, marginTop: 20 }}>
+            {/* <IconButton style={{ height: 40, marginTop: 20 }}>
               <img
                 style={{ fontSize: "0", height: 40 }}
                 alt="github"
@@ -340,11 +342,11 @@ function ModalCadastro() {
                 alt="logoFacebook"
                 src={logoFacebook}
               />
-            </IconButton>
+            </IconButton> */}
             <IconButton style={{ height: 40, marginTop: 20 }}>
               <img
                 style={{ fontSize: "0", height: 40 }}
-                alt="github"
+                alt="google"
                 src={logoGoogle}
               />
             </IconButton>

@@ -11,15 +11,23 @@ import favoritoCheio from "../assets/favoritar-cheio.svg";
 import curtir from "../assets/curtir.svg";
 import descurtir from "../assets/descurtir.svg";
 import discord from "../assets/discord-icon.svg";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import api from "../api";
+import textToAudioApi from "../textToAudioApi";
+import { useSpeechSynthesis } from "react-speech-kit";
+import { Button } from "reactstrap";
 
 export function Conteudo() {
+  // const { speak } = useSpeechSynthesis();
 
   var idContent = sessionStorage.ID_CONTENT;
   var idUser = sessionStorage.ID_USER;
 
+  // const audio = new Audio(`../assets/audio/${idContent}.mp3`)
+  const [playMessage, setPlayMessage] = useState("Aperte para ouvir");
   const [content, setContent] = useState([]);
+  const [commentaryList, setCommentaryList] = useState([]);
+  const [commentary, setCommentary] = useState([]);
   const [favorite, setFavorite] = useState(false);
 
   async function isFavorite() {
@@ -51,8 +59,40 @@ export function Conteudo() {
     setContent(result.data);
   }
 
+  async function getContentCommentary() {
+    var result = await api.get(`/commentary?idContent=${idContent}`);
+    setCommentaryList(result.data);
+  }
+
+  async function createCommentary() {
+    try {
+      await api.post("/commentary", {
+        fkUser: idUser,
+        fkContent: idContent,
+        commentaryContent: commentary
+      });
+      getContentCommentary();
+    } catch (error) {
+      console.log(`[ERROR] - createCommentary`, error);
+    }
+  }
+
+  function playAudio() {
+    //  speak({ text: content.content?.substring(0, 500) });
+    if (!audioStatus) {
+      myRef.current.play();
+      changeAudioStatus(true);
+      setPlayMessage("Aperte para parar");
+    } else {
+      myRef.current.pause();
+      changeAudioStatus(false);
+      setPlayMessage("Aperte para ouvir");
+    }
+  }
+
   useEffect(() => {
     getContent();
+    getContentCommentary();
     isFavorite();
   }, []);
 
@@ -60,7 +100,7 @@ export function Conteudo() {
     if (content.content?.length < 1000) {
       return (
         <>
-          <CConteudo1 textoParte1={content.content?.substring(0, 500)} />
+          <CConteudo1 textoParte1={content.content?.substring(0, 1000)} />
         </>
       );
     } else if (content.content?.length < 2000) {
@@ -90,6 +130,9 @@ export function Conteudo() {
     }
   }
 
+  const [audioStatus, changeAudioStatus] = useState(false);
+  const myRef = useRef();
+
   return (
     <>
       <LoggedNavBar title={"Conteúdo"} />
@@ -103,15 +146,19 @@ export function Conteudo() {
             alt=""
           />
         </div>
+        <audio ref={myRef} src={`../assets/audio/${idContent}.mp3`} />
+        <Button className="btn_play" onClick={() => playAudio()}>
+          {playMessage}
+        </Button>
       </div>
-      <div className="texto">{sortContent()}</div>
+      <div className="texto mt-4">{sortContent()}</div>
       <div className="reacoes">
         <img src={curtir} alt="" />
         <img src={descurtir} alt="" />
       </div>
       <div className="header-comentarios">
         <h2>Comentar:</h2>
-        <a href="#####">
+        <a href="https://discord.gg/J3kMDRYXbA">
           <img src={discord} alt="" />
         </a>
       </div>
@@ -120,14 +167,20 @@ export function Conteudo() {
           type="text"
           className="mr-2"
           placeholder=" Escreva seu comentario aqui..."
+          onKeyUp={(it) => setCommentary(it.target.value)}
         />
-        <button className="btn-enviar">Enviar</button>
+        <button onClick={() => createCommentary()} className="btn-enviar">Enviar</button>
       </div>
       <div className="header-comentarios">
         <div className="comentarios">
           <h2>Comentários:</h2>
-          <CComentario />
-          <CComentario />
+          {commentaryList.map((it) => {
+            return (
+              <>
+                <CComentario username={it.username} commentaryContent={it.commentaryContent} />
+              </>
+            );
+          })}
         </div>
       </div>
     </>

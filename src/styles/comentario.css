@@ -11,34 +11,28 @@ body {
 
 .container-comentario {
     width: 100%;
+    margin-bottom: 3vh;
     /* margin-left: 5%;
     margin-right: 5%; */
-    margin-bottom: 30px;
 }
 .background-comentario {
+    padding: 3vh;
     width: 100%;
     height: auto;
     background-color: #353333;
 }
 .comentario-content {
-    display: flex;
+    display: grid;
+    align-items: center;
+    justify-content: space-between;
     flex-direction: row;
 }
 
 .lado-esquerdo {
-    width: 30%;
+    width: 15%;
     margin: auto;
     margin-left: 5%;
-    margin-right: 5%;
 }
-
-.lado-direito {
-    margin: auto;
-    margin-right: 5%;
-    margin-top: 2%;
-    margin-bottom: 2%;
-}
-
 .lado-direito span {
     color: #52BCBF;
     font-weight: bold;

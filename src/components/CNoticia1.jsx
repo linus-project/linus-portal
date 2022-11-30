@@ -28,7 +28,10 @@ export function CNoticia1(props) {
                     bottom
                     src={props.imagem}
                     style={{
-                        height: 180
+                        height: 130,
+                        width: '99%',
+                        marginLeft: 6,
+                        marginBottom: "2vh"
                     }}
                     width="100%"
                 />

@@ -11,6 +11,7 @@ import CTextoPequeno from "../components/CTextoPequeno";
 // import img6 from "../assets/pexels-xxss-is-back-777001";
 import moment from "moment-timezone";
 import api from "../api";
+import newsBackground from "../assets/newsback.jpeg"
 import { useEffect, useState } from "react";
 
 export function Noticias() {
@@ -45,6 +46,7 @@ export function Noticias() {
                 key={news.idNews}
                 titulo={news.newsTitle}
                 subTitulo={news.news}
+                imagem={newsBackground}
                 textoPostagem={`Postado em ${moment(news.insertDate).format('DD/MM/YYYY')} às ${moment(news.insertDate).format('HH:mm')}`}
               />
             </>

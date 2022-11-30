@@ -5,7 +5,7 @@ import edit from "../assets/edit.svg";
 import CTextoGrande from "../components/CTextoGrande";
 import CTextoPequeno from "../components/CTextoPequeno";
 import LoggedNavBar from "../components/CLoggedNavBar";
-import profileImage from "../assets/users/0.png";
+import profileImage from "../assets/users/avatar.png";
 import {
   Button,
   Form,

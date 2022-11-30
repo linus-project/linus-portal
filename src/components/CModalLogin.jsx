@@ -9,6 +9,7 @@ import api from "../api";
 import logoFacebook from "../assets/facebook1.png";
 import logoGoogle from "../assets/google.png";
 import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 function ModalLogin() {
   const [username, setUsername] = useState("");
@@ -45,7 +46,18 @@ function ModalLogin() {
       sessionStorage.BORN_DATE = result.data.bornDate;
       navigate("/distribuicoes");
     } else {
-      window.alert("Usuário ou senha senha incorretos!");
+      // window.alert("Usuário ou senha senha incorretos!");
+      Swal.fire({
+        showCloseButton: true,
+        showCancelButton: true,
+        background:"#353333",
+        color:"#fff",
+        iconColor:"#C42A2A",
+        icon: 'error',
+        title: 'Usuário ou senha senha incorretos!',
+        text: 'Tente novamente.',
+        confirmButtonColor: "#52bcbf"
+      })
     }
   }
 

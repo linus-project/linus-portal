@@ -7,6 +7,8 @@ import { useState } from "react";
 import logoFacebook from "../assets/facebook1.png";
 import logoGoogle from "../assets/google.png";
 import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
+import 'animate.css';
 
 function ModalCadastro() {
   const navigate = useNavigate();
@@ -45,11 +47,32 @@ function ModalCadastro() {
         imageCode: imageCode,
         fkLevel: fkLevel,
       });
-      window.alert("Cadastrado com sucesso!");
+      // window.alert("Cadastrado com sucesso!");
+      Swal.fire({
+        showCloseButton: true,
+        showCancelButton: true,
+        background:"#353333",
+        color:"#fff",
+        confirmButtonColor: "#52bcbf",
+        title:'Deu tudo certo!',
+        text:'Cadastrado com sucesso',
+        icon:'success'
+      })
       success = true;
     } catch (error) {
       console.log("[ERROR] - addUser: ", error);
-      window.alert("Erro ao realizar o cadastro!");
+      // window.alert("Erro ao realizar o cadastro!");
+      Swal.fire({
+        showCloseButton: true,
+        showCancelButton: true,
+        background:"#353333",
+        color:"#fff",
+        iconColor:"#C42A2A",
+        icon: 'error',
+        title: 'Erro ao realizar o cadastro',
+        text: 'Tente novamente.',
+        confirmButtonColor: "#52bcbf"
+      })
     }
     if (success == true) {
       sessionStorage.ID_USER = result.data.idUser;
@@ -58,10 +81,33 @@ function ModalCadastro() {
       sessionStorage.USERNAME = result.data.username;
       sessionStorage.IMAGE_CODE = result.data.imageCode;
       sessionStorage.LEVEL = result.data.fkLevel;
-      window.alert("")
       navigate("/perfil");
+      // window.alert("")
+      Swal.fire({
+        title: 'Seja bem-vindo!',
+        text: 'Você esta prepaardo para aprender cada vez mais? Complete seu cadastro e comece a navegar!',
+        confirmButtonColor: "#52bcbf",
+        confirmButtonText: "Vamos lá!",
+        showClass: {
+          popup: 'animate__animated animate__fadeInDown'
+        },
+        hideClass: {
+          popup: 'animate__animated animate__fadeOutUp'
+        }
+      })
     } else {
-      window.alert("Preencha os campos corretamente!");
+      // window.alert("Preencha os campos corretamente!");
+      Swal.fire({
+        showCloseButton: true,
+        showCancelButton: true,
+        background:"#353333",
+        color:"#fff",
+        iconColor:"#C42A2A",
+        icon: 'error',
+        title: 'Erro ao realizar o cadastro',
+        text: 'Preencha os campos corretamente!',
+        confirmButtonColor: "#52bcbf"
+      })
     }
   }
 

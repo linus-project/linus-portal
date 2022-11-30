@@ -65,13 +65,18 @@ export function Perfil() {
 
   async function saveEdit() {
     const { value: password } = await Swal.fire({
+      showCloseButton: true,
+      showCancelButton: true,
+      background:"#353333",
+      color:"#fff",
       title: "Tem certeza?",
       input: "password",
       inputLabel: "Digite sua senha para confirmar",
       showCancelButton: true,
       confirmButtonColor: "#52bcbf",
-      confirmButtonText: "Salvar",
+      confirmButtonText: "Salvar Alterações",
       cancelButtonText: "Cancelar",
+      cancelButtonColor: "#C42A2A",
       inputPlaceholder: "Digite sua senha",
       inputAttributes: {
         maxlength: 10,
@@ -96,11 +101,33 @@ export function Perfil() {
         setEditButtons("");
         success = true;
       } catch (error) {
-        window.alert(error.response.data.message)
+        // window.alert(error.response.data.message)
+        Swal.fire({
+          showCloseButton: true,
+          showCancelButton: true,
+          background:"#353333",
+          color:"#fff",
+          iconColor:"#C42A2A",
+          icon: 'error',
+          title: 'Senha incorreta!',
+          text: 'Tente novamente.',
+          confirmButtonColor: "#52bcbf"
+        })
       }
     }
     if (success) {
-      window.alert("Alterações salvas com sucesso")
+      // window.alert("Alterações salvas com sucesso")
+      Swal.fire({
+        showCloseButton: true,
+        showCancelButton: true,
+        background:"#353333",
+        howCancelButton: true,
+        color:"#fff",
+        confirmButtonColor: "#52bcbf",
+        title:'Deu tudo certo!',
+        text:'Alterações salvas com sucesso',
+        icon:'success'
+      })
       sessionStorage.NAME = document.getElementById("nome").value;
       sessionStorage.USERNAME = document.getElementById("usuario").value;
       sessionStorage.EMAIL = document.getElementById("email").value;
@@ -167,7 +194,7 @@ export function Perfil() {
   return (
     <>
       <LoggedNavBar title={"Seu Perfil"} />
-      <CTextoGrande text="Meu perfil" class="pl-5 fw-bold pt-5" />
+      <CTextoGrande text="Seu perfil" class="pl-5 fw-bold pt-5" />
       <CTextoPequeno
         text="Dados do usuário"
         subtext={<img onClick={() => editProfile()} src={edit} alt="" />}

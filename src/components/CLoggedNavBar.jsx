@@ -148,12 +148,12 @@ function LoggedNavBar(props) {
                       <NavDropdown.Item onClick={() => navigate("/conteudos")}>
                         Conteúdos
                       </NavDropdown.Item>
-                      {/* <NavDropdown.Divider />
+                      <NavDropdown.Divider />
                       <NavDropdown.Item
                         onClick={() => navigate("/visto-por-ultimo")}
                       >
                         Vistos por Último
-                      </NavDropdown.Item> */}
+                      </NavDropdown.Item>
 
                       <NavDropdown.Divider />
                       <NavDropdown.Item

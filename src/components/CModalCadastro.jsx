@@ -89,11 +89,13 @@ function ModalCadastro() {
       sessionStorage.USERNAME = result.data.username;
       sessionStorage.IMAGE_CODE = result.data.imageCode;
       sessionStorage.LEVEL = result.data.fkLevel;
+      sessionStorage.PHONE_NUMBER = result.data.phoneNumber;
+      sessionStorage.BORN_DATE = result.data.bornDate;
       navigate("/perfil");
       // window.alert("")
       Swal.fire({
-        title: "Seja bem-vindo!",
-        text: "Você esta prepaardo para aprender cada vez mais? Complete seu cadastro e comece a navegar!",
+        title: 'Seja bem-vindo!',
+        text: 'Você esta preparado para aprender cada vez mais? Complete seu cadastro e comece a navegar!',
         confirmButtonColor: "#52bcbf",
         confirmButtonText: "Vamos lá!",
         showClass: {

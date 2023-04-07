@@ -22,6 +22,7 @@ export function Conteudo() {
 
   var idContent = sessionStorage.ID_CONTENT;
   var idUser = sessionStorage.ID_USER;
+  var contentLevel = sessionStorage.CONTENT_LEVEL;
 
   // const audio = new Audio(`../assets/audio/${idContent}.mp3`)
   const [playMessage, setPlayMessage] = useState("Aperte para ouvir");
@@ -71,6 +72,21 @@ export function Conteudo() {
         fkContent: idContent,
         commentaryContent: commentary
       });
+      document.getElementById("ipt-commentary").value = "";
+      getContentCommentary();
+    } catch (error) {
+      console.log(`[ERROR] - createCommentary`, error);
+    }
+  }
+
+  async function saveHistoryContent() {
+    try {
+      await api.post("/content/history", {
+        fkUser: idUser,
+        fkContent: idContent,
+        contentLevel: 0
+      });
+      document.getElementById("ipt-commentary").value = "";
       getContentCommentary();
     } catch (error) {
       console.log(`[ERROR] - createCommentary`, error);
@@ -94,6 +110,7 @@ export function Conteudo() {
     getContent();
     getContentCommentary();
     isFavorite();
+    saveHistoryContent();
   }, []);
 
   function sortContent() {
@@ -164,6 +181,7 @@ export function Conteudo() {
       </div>
       <div className="ipt_comentar">
         <input
+          id="ipt-commentary"
           type="text"
           className="mr-2"
           placeholder=" Escreva seu comentario aqui..."

@@ -48,20 +48,31 @@ function ModalLogin() {
       if (result.data.adminKey != null) {
         sessionStorage.IS_ADMIN = true;
       }
-      navigate("/distribuicoes");
+      try {
+        var hasHistory = await api.get(
+          `/content/history?idUser=${result.data.idUser}`
+        );
+        if (hasHistory.data.length === 0) {
+          navigate("/distribuicoes");
+        } else {
+          navigate("visto-por-ultimo")
+        }
+      } catch (error) {
+        console.log("[ERROR] - userLogin: ", error);
+      }
     } else {
       // window.alert("Usuário ou senha senha incorretos!");
       Swal.fire({
         showCloseButton: true,
         showCancelButton: true,
-        background:"#353333",
-        color:"#fff",
-        iconColor:"#C42A2A",
-        icon: 'error',
-        title: 'Usuário ou senha senha incorretos!',
-        text: 'Tente novamente.',
-        confirmButtonColor: "#52bcbf"
-      })
+        background: "#353333",
+        color: "#fff",
+        iconColor: "#C42A2A",
+        icon: "error",
+        title: "Usuário ou senha senha incorretos!",
+        text: "Tente novamente.",
+        confirmButtonColor: "#52bcbf",
+      });
     }
   }
 

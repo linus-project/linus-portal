@@ -126,7 +126,7 @@ function ModalLogin() {
             }}
           >
             <FormGroup floating style={{ marginTop: 20 }}>
-              USUÁRIO
+              Usuário
               <Input
                 onKeyUp={isFilled}
                 onChange={(username) => setUsername(username.target.value)}
@@ -151,7 +151,7 @@ function ModalLogin() {
             </FormGroup>
 
             <FormGroup floating>
-              SENHA
+              Senha
               <Input
                 onKeyUp={isFilled}
                 onChange={(password) => setPassword(password.target.value)}
@@ -219,7 +219,7 @@ function ModalLogin() {
               >
                 <img
                   style={{ fontSize: "0", height: 40 }}
-                  alt="gogle"
+                  alt="google"
                   src={logoGoogle}
                 />
               </IconButton>
